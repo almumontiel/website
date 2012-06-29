@@ -1,0 +1,155 @@
+
+
+In order to create a testing infrastructure the best is to use some configuration management that allows automatization. It is necessary to be able to create-destroy-recreate any infrastructure. This is also a requirement policy on the Configuration Management phylosophy at GSI. Chef will be used. 
+
+In this case, I deploy an independent network only visible inside the machine lxgrid5, because so far it is not as relevant work as to make it accessible. I will follow the chef-server model, one node will be a workstation running chef-server. The other nodes will run a chef client and will be configured from the server.
+
+All the virtual machines (VMs) will run under a NATed subnetwork. This is the current configuration:
+
+    --xml
+    amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ virsh net-dumpxml nat_bridge
+    <network>
+      <name>nat_bridge</name>
+      <uuid>40aa03bf-ba9a-e5e1-5566-8f8ecab56d5b</uuid>
+      <forward mode='nat'/>
+      <bridge name='nbr0' stp='on' delay='0' />
+      <domain name='devops.test'/>
+      <ip address='10.1.1.1' netmask='255.255.255.0'>
+        <dhcp>
+          <range start='10.1.1.20' end='10.1.1.254' />
+          <host mac='02:FF:0A:0A:06:02' name='lxdns01.devops.test' ip='10.1.1.2' />
+          <host mac='02:FF:0A:0A:06:03' name='lxcm01.devops.test' ip='10.1.1.3' />
+          <host mac='02:FF:0A:0A:06:04' name='lxrm01.devops.test' ip='10.1.1.4' />
+          <host mac='02:FF:0A:0A:06:05' name='lxb001.devops.test' ip='10.1.1.5' />
+          <host mac='02:FF:0A:0A:06:06' name='lxb002.devops.test' ip='10.1.1.6' />
+          <host mac='02:FF:0A:0A:06:07' name='lxb003.devops.test' ip='10.1.1.7' />
+          <host mac='02:FF:0A:0A:06:08' name='lxb004.devops.test' ip='10.1.1.8' />
+          <host mac='02:FF:0A:0A:06:09' name='lxmon01.devops.test' ip='10.1.1.9' />
+          <host mac='02:FF:0A:0A:06:0A' name='lxfs01.devops.test' ip='10.1.1.10' />
+          <host mac='02:FF:0A:0A:06:0B' name='lxdev01.devops.test' ip='10.1.1.11' />
+          <host mac='02:FF:0A:0A:06:0C' name='lxdev02.devops.test' ip='10.1.1.12' />
+          <host mac='02:FF:0A:0A:06:0D' name='lxdev03.devops.test' ip='10.1.1.13' />
+        </dhcp>
+      </ip>
+    </network>
+
+The DNS will be installed/configured by using chef-solo, because we will need it before we have the configuration management server. The recipe used will be [lazyDNS](http://gitorious.gsi.de/site-cookbooks/lazydns) ___NOTE___ WE DO NOT REALLY NEED DNS. Just with the configuration of /etc/resolv.conf and DHCP in each machine it should be enough for basic name resolution.
+
+There will be a VM that will run the configuration management (CM), namely, the chef server. The others will have the chef client installed. The recipes on the CM VM will be in sync with the recipies on the physical host lxgrid5.gsi.de, where the kvm hypervisor is.
+Following [Victor's guide](http://gitorious.gsi.de/vpenso/kvm_helpers) the following virtual machines are created.
+
+# Chef server
+These are the steps to follow: 
+ - Provisioning of the VM
+ - Install a Chef Server
+ - Configure your local workstation
+ - Install chef-client on your nodes
+
+## Provisioning of the VM
+We will copy the image from Lustre. And we will edit some stuff.
+
+Copy and untar the image:
+
+    --bash
+    amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ scp lx-pool:/lustre/rz/vpenso/images/debian64-6.0.0-chef-server-0.9.14.kvm.tgz .
+    amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ tar -xvf ./debian64-6.0.0-chef-server-0.9.14.kvm.tgz
+
+Edit the file: libvirt_instance.xml accordingly: 
+
+
+    --xml
+    amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ cat libvirt_instance.xml 
+    <domain type='kvm'>
+      <name>lxcm01.devops.test</name>
+      <memory>524288</memory>
+      <vcpu>1</vcpu>
+      <os>
+        <type arch="x86_64">hvm</type>
+      </os>
+      <clock sync="localtime"/>
+      <devices>
+        <emulator>/usr/bin/kvm</emulator>
+        <disk type='file' device='disk'>
+      <source file='/home/amontiel/srv/vms/instances/lxcm01.devops.test/disk.img'/>
+          <target dev='hda'/>
+          <driver name='qemu' type='qcow2'/>
+        </disk>
+        <interface type='bridge'>
+          <source bridge='nbr0'/>
+          <mac address='02:FF:0A:0A:06:03'/>
+        </interface>
+      </devices>
+      <on_poweroff>destroy</on_poweroff>
+      <on_reboot>restart</on_reboot>
+      <on_crash>restart</on_crash>
+      <features>
+        <acpi/>
+      </features>
+    </domain>
+
+Create the virtual machine with libvirt.
+
+    --bash
+    amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ virsh create libvirt_instance.xml
+
+We need to change the hostname assigned initialy. We do this by editing `/etc/hosts` and also executing `sudo hostname lxcm01.devops.test`. 
+
+## Install a Chef server
+
+Just follow the [installation guide](http://wiki.opscode.com/display/chef/Installing+Chef+Server) from Chef.
+
+To be able to manage Chef server, we have to configure the workstation where it is running. We configure this workstation as it was a client of the Chef server itself.
+
+We copy the cookbooks from gitorious:
+
+    --bash
+    mkdir ~/chef
+    cd ~/chef
+    git clone http://gitorious.gsi.de/site-cookbooks
+    
+We configure knife:
+
+    --bash
+    mkdir -p ~/.chef
+    sudo cp /etc/chef/validation.pem /etc/chef/webui.pem ~/.chef
+    sudo chown -R $USER ~/.chef
+    knife configure -i
+    Where should I put the config file? [~/.chef/knife.rb]
+    Please enter the chef server URL: [http://localhost:4000]
+    Please enter a clientname for the new client: [devops]
+    Please enter the existing admin clientname: [chef-webui]
+    Please enter the location of the existing admin client's private key: [/etc/chef/webui.pem] .chef/webui.pem
+    Please enter the validation clientname: [chef-validator]
+    Please enter the location of the validation key: [/etc/chef/validation.pem] .chef/validation.pem
+
+If we try to configure Chef-server for a client that is already existing, lets say we made a mistake and would like to redifine this user, the we face this problem (solved): http://tickets.opscode.com/browse/CHEF-2344
+
+
+We connect clients:
+
+For connecting nodes, which are both: a client and a node inside Chef server, we need to take the _validation_ certificate into the client. We do the following: 
+
+    --bash
+    amontiel@lxgrid5:/srv/vms/lxcm01.devops.gsi.de$ vmget /etc/chef/validation.pem .
+    amontiel@lxgrid5:/srv/vms/lxcm01.devops.gsi.de$ cd ../lxid01.devops.gsi.de/
+    amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de$ cp ../lxcm01.devops.gsi.de/validation.pem .
+    amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de$ vmput validation.pem /tmp/
+    Warning: Permanently added '10.1.1.19' (RSA) to the list of known hosts.
+    validation.pem
+    amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de$ vmput validation.pem /tmp/
+    Warning: Permanently added '10.1.1.19' (RSA) to the list of known hosts. validation.pem                                                                                                                     100% 1675     1.6KB/s   00:00    
+    amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de$ vmssh
+    Linux lxid01 2.6.32-5-amd64 #1 SMP Thu Mar 22 17:26:33 UTC 2012 x86_64
+    
+    The programs included with the Debian GNU/Linux system are free software;
+    the exact distribution terms for each program are described in the
+    individual files in /usr/share/doc/*/copyright.
+    
+    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+    permitted by applicable law.
+    Last login: Fri Mar 30 14:44:30 2012 from 10.1.1.1
+    devops@lxid01:~$ sudo -s
+    root@lxid01:/home/devops# mv /tmp/validation.pem /etc/chef/validation.pem
+    root@lxid01:/home/devops# /etc/init.d/chef-client restart
+    Restarting chef-client: chef-client.
+

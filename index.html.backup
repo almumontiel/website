@@ -1,0 +1,62 @@
+<head>
+<title>Almudena Montiel Gonzalez </title>
+ <LINK REL=STYLESHEET HREF="./style.css" TYPE="text/css">
+<!-- <style type="text/css">
+.nav     { width:5em; padding:0.3em;
+           background:#fff; color:#000;}
+hr.nav  { display: none; }
+ul.nav  { margin: 0 0 0 1em; padding: 3; }
+li.nav  { margin: 0; padding: 0; }
+
+
+.content
+{
+ position: absolute; top: 1em; left: 8em; 
+           padding-bottom:0.5em;
+ font-family: Arial, serif;
+ color: #000000;
+ background-color: #FFFFFF;
+ text-align: justify;
+}
+
+H2
+   {
+   font-size:200%;
+   font-weight:900;
+   font-family:sans-serif;
+   }
+
+</style>-->
+</head>
+<body>
+<div class="content">
+
+<H2>Almudena Montiel</H2>
+In this blog I will write about my projects both, profesional and not.
+</ br>If you are interested in any of them, click on the link:
+
+
+<td><!-- - [Federated Identity Management](FederatedIM.html).</td></tr>-->
+<ul>
+
+<li><a href="FederatedIM.html">Federated Identity Management</a></li>
+
+<td><!--  - [Chef server](chef-server.html).</td></tr>-->
+<li><a href="chef-server.html">Chef server</a></li>
+
+<td> <!-- - [Running training](training.html).</td></tr>-->
+<li><a href="training.html">Jogging</a></li>
+</ul> 
+
+
+</div>
+<div class="nav">
+<hr class="nav">
+<ul class="nav">
+<li class="nav"><a href="index.html">Main</li>
+<li class="nav"><a href="FederatedIM.html">Federated Identity Management</a>
+</li>
+<li class="nav"><a href="chef-server.html">Chef server</a> </li>
+</ul>
+</div>
+</body>

@@ -1,0 +1,925 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+				<head>
+								<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+								<title>Almudena Montiel Gonz&aacute;lez</title>
+								<link rel="stylesheet" type="text/css" href="style.css" />
+				</head>
+				<body>
+
+								<div id="main_container">
+												<div id="header"> 
+																<div id="menu_tab">                               
+																				<ul class="menu">                         
+																								<li><a href="index.html" class="nav_home"> HOME </a></li>
+																								<li><a href="about.html" class="nav_about"> ABOUT</a></li>
+																								<li><a href="projects.html" class="nav_services"> PROJECTS</a></li>
+
+																								<li><a href="blog.html" class="nav_blog"> BLOG</a></li>
+  <li><a href="summary.html" class="nav_summary"> MINUTES </a></li>
+  <li><a href="contact.html" class="nav_contact"> CONTACT </a></li>
+																				</ul>
+																</div>        
+
+
+												</div>
+
+
+
+												<div id="main_content">
+
+																<!-- 	<div class="left_content">-->
+																				<!--     	<div class="left_box">-->
+																								<!--          <div class="left_text_box">-->
+																												<h1>Federated Identity Management</h1>
+																												<div id="display">
+																																<div id="content">
+																																				<div class="toc">
+																																								<a href="#federatedidentitymanagementonscientificcollaborations">1&nbsp;Federated Identity Management on scientific collaborations</a><br/>
+																																								&nbsp;&nbsp;<a href="#motivation">1.1&nbsp;Motivation</a><br/>
+																																								&nbsp;&nbsp;<a href="#stateofthearttechnologiesandtools">1.2&nbsp;State-of-the-art technologies and tools</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#workshopsandmeetingsattended">1.2.1&nbsp;Workshops and meetings attended</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tools">1.2.2&nbsp;Tools</a><br/>
+																																								<a href="#ahrefauthnauthzhtmlauthnandauthztechnologiesa">1&nbsp;AuthN and AuthZ technologies</a><br/>
+																																								&nbsp;&nbsp;<a href="#publickeyinfrastructurepki">2.1&nbsp;Public Key Infrastructure (PKI)</a><br/>
+																																								&nbsp;&nbsp;<a href="#kerberos">2.2&nbsp;Kerberos</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#concepts">2.2.1&nbsp;Concepts</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#protocols">2.2.2&nbsp;Protocols</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#heimdal">2.2.3&nbsp;Heimdal</a><br/>
+																																								&nbsp;&nbsp;<a href="#ldap">2.3&nbsp;LDAP</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#openldap">2.3.1&nbsp;OpenLDAP</a><br/>
+																																								&nbsp;&nbsp;<a href="#integratingopenldapwithkerberosheimdal">2.4&nbsp;Integrating OpenLDAP with Kerberos Heimdal</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#setthevirtualmachines">2.4.1&nbsp;Set the virtual machines</a><br/>
+																																								&nbsp;&nbsp;&nbsp;&nbsp;<a href="#installheimdal">2.4.2&nbsp;Installation and configuration of Heimdal</a><br/>
+
+
+																																								<a href="#usecaseforfair">3&nbsp;Use case for FAIR</a><br/>
+
+																																				</div>
+
+																																				<h1>Chef</h1>
+																																				<div class="toc">
+																																								<a href="#chefserver">1&nbsp;Chef server</a><br/>
+																																								&nbsp;&nbsp;<a href="#provisioningofthevm">1.1&nbsp;Provisioning of the VM</a><br/>
+																																								&nbsp;&nbsp;<a href="#installachefserver">1.2&nbsp;Install a Chef server</a><br/>
+																																				</div>
+
+																																				<h1><a name="federatedidentitymanagementonscientificcollaborations"></a>1&nbsp;Federated Identity Management on scientific collaborations</h1>
+
+																																				<p><a href="http://www.crisp-fp7.eu/">CRISP</a> (Cluster of Research Infrastructures for Synergies in Physics) is a partnership which builds collaborations and creates long-term synergies between research infrastructures on the ESFRI (European Strategy Forum on Research Infrastructure). It is built on several work programmes that are splitted in WP (Work Packages). I am involved in IT &amp; DATA MANAGEMENT WORK PROGRAMME, specifically in WP16 &ldquo;IT &amp; DM: Common User Identity System&rdquo;.</p>
+
+																																				<p>The objetives of my new project are to develop and deploy a pan-European system for unique identification (Authentication and authorisation
+																																				infrastructure: AAI) of users at the infrastructures of the participating RIs EuroFEL (PSI), ESRF, ESS, FAIR
+																																				(GSI), ILL, and XFEL for the management of local and remote access to facilities, experiments, data, and IT
+																																				resources.</p>
+
+																																				<p><strong>Identity Management System</strong> is the set of tools needed to manage the identity of people. (<em>Wikipedia source</em>)An IdM (Identity Management) system comprises: </p>
+
+																																				<ol>
+																																								<li>Establishment of the identity.</li>
+																																								<li>Describes the identity.</li>
+																																								<li>Follows identity activity.</li>
+																																								<li>Destroys the identity.</li>
+																																				</ol>
+
+																																				<p>When we talk about <strong>Federated IdM</strong> the we are providing a mean for partner services to agree on and establish a common, shared name identifier to refer to the user in order to share information about the user across the organizational boundaries.</p>
+
+																																				<h2><a name="motivation"></a>1.1&nbsp;Motivation</h2>
+
+																																				<p>The main goal of look into Federated access for scientific communities is to create a unique identification (AAI) system. An authentication and authorisation mechanism common to all users of different RIs can greatly simplify the access to distributed resources.
+																																				Also considering that the user community in Science is growing, it would be benefitial to keep the number of accounts to a minimum, this is to keep only one account for each user in the Federation. With this approach, a user would have less barriers when accessing remote resources. Also, federated identity management is good for security because it reduces the amount of accounts needed for a user (identity providers have the attention of attackers). 
+																																				There are a set of common needs from those communities (gathered in the <a href="https://indico.cern.ch/conferenceTimeTable.py?confId=129364#20110610.detailed" class="simple_link">1st workshop on Federated Identity Management in Scientific Collaborations</a>):</p>
+
+																																				<ol>
+																																								<li>Need for single-sign on access.</li>
+																																								<li>Ease of use for part-time users. </li>
+																																								<li>Controlling access to the resources. </li>
+																																								<li>Support for homeless researchers. </li>
+																																								<li>Interoperability accross national boundaries. </li>
+																																								<li>Trust is needed with accreditation. IGTF is already in use by many of the communities.</li>
+																																								<li>Traceability.</li>
+																																								<li>Enable federated access from grids of High Performance Computing, as well as High Troughput Computing and new Distributed computing resources, such as Clouds, Supercomputing networks and Desktops grids. </li>
+																																				</ol>
+
+																																				<h2><a name="stateofthearttechnologiesandtools"></a>1.2&nbsp;State-of-the-art technologies and tools</h2>
+
+																																				<h3><a name="workshopsandmeetingsattended"></a>1.2.1&nbsp;Workshops and meetings attended</h3>
+
+																																				<p>As a first step I will research the state-of-the-art technologies and tools currently used or being adopted by other scientific collaborations. I attended the <a href="https://indico.cern.ch/conferenceTimeTable.py?confId=129364#20110610.detailed" class="simple_link">1st workshop on Federated Identity Management in Scientific Collaborations</a> and the <a href="http://indico.cern.ch/conferenceTimeTable.py?confId=157486#20111103" class="simple_link">2nd workshop on Federated Identity Management in Scientific Collaborations</a>, where the main user-requirements, existing technologies and vision on this subject were presented. </p>
+
+																																				<p>This is more or less the set of scenarios described and the tools that each of them is using currently.</p>
+
+																																				<table border=1>
+																																								<thead>
+																																												<tr>
+																																																<th style="text-align: center">Organisation</th>
+																																																<th style="text-align: left">#users</th>
+																																																<th style="text-align: left">Main concern</th>
+																																																<th style="text-align: left">Tool used</th>
+																																												</tr>
+																																								</thead>
+																																								<tbody>
+																																												<tr>
+																																																<td style="text-align: center">PSI</td>
+																																																<td style="text-align: left">~ 10000</td>
+																																																<td style="text-align: left">Very big datasets, that want to access remotely. Very short lived users. Homeless users.</td>
+																																																<td style="text-align: left">Umbrella (shibboleth + SAML)</td>
+																																												</tr>
+																																												<tr>
+																																																<td style="text-align: center">CLARIN</td>
+																																																<td style="text-align: left">hundreds</td>
+																																																<td style="text-align: left">Single domain with identity managed by home institute. Many diverse and distributed data sets with complex relations in between them.</td>
+																																																<td style="text-align: left">eduGAIN (Shibboleth + SAML)</td>
+																																												</tr>
+																																												<tr>
+																																																<td style="text-align: center">DARIAH</td>
+																																																<td style="text-align: left">hundreds</td>
+																																																<td style="text-align: left">VRE-Integration of homeless users and Job-Submission (e.g. Globus, gLite) through Shibboleth, based on Robot Certificates and Short-Lived-Credentials. Researching eduGAIN and integration with user-centered mechanisms like openID</td>
+																																																<td style="text-align: left">Shibboleth</td>
+																																												</tr>
+																																												<tr>
+																																																<td style="text-align: center">WLCG</td>
+																																																<td style="text-align: left">~5900</td>
+																																																<td style="text-align: left">IGFT is the approach to federated IdM. This solution does not scale. In the Grid it is difficult to identify the original source of compromise. x509 needs to be supported (security token service)</td>
+																																																<td style="text-align: left">x509</td>
+																																												</tr>
+																																												<tr>
+																																																<td style="text-align: center">ESGF (earth system grid fed.)</td>
+																																																<td style="text-align: left">~5000</td>
+																																																<td style="text-align: left">Already many technologies existing.Single sign on with OpenID and MyProxy.Attribute propagation with SAML and OpenID. Authorisation with SAML.</td>
+																																																<td style="text-align: left">openID + SAML</td>
+																																												</tr>
+																																												<tr>
+																																																<td style="text-align: center">OSG (open science grid)</td>
+																																																<td style="text-align: left">&nbsp;</td>
+																																																<td style="text-align: left">They want to integrate together InCommon and IGTF</td>
+																																																<td style="text-align: left">SAML + Shibboleth  + x509</td>
+																																												</tr>
+																																								</tbody>
+																																				</table>
+
+																																				<h3><a name="tools"></a>1.2.2&nbsp;Tools</h3>
+
+																																				<p>There are a number of technologies implied in the current scenarios of federated identity:</p>
+
+																																				<ul>
+																																								<li><a href="fedid/saml.html" class="simple_link">SAML</a></li>
+																																								<li><a href="http://sites.google.com/site/publisherinterfacestudy/home/the-discovery-problem" class="simple_link">Discovery problem</a> is a well known problem in the federated identity topic.</li>
+																																				</ul>
+
+																																				<h1><a name="ahrefauthnauthzhtmlauthnandauthztechnologiesa"></a>2&nbsp;AuthN and AuthZ technologies</h1>
+
+																																				<p>This is a review for the state-of-the-art major authN and authZ technologies. </p>
+																																				<h2><a name="publickeyinfrastructurepki"></a>2.1&nbsp;Public Key Infrastructure (PKI)</h2>
+
+																																				<p>A public key infrastructure consists of:</p>
+
+																																				<ul>
+																																								<li>A certificate authority (CA) that issues and verifies digital certificate. A certificate includes the public key or information about the public key.</li>
+																																								<li>A registration authority (RA) that acts as the verifier for the certificate authority before a digital is issued.</li>
+																																								<li>One or more directories where the certificates (with their public keys) are held.</li>
+																																				</ul>
+
+																																				<p><img src="Public-Key-Infrastructure.png" alt="Schema" /></p>
+
+																																				<h2><a name="kerberos"></a>2.2&nbsp;Kerberos</h2>
+
+																																				<p>Kerberos is a secure, single-sign-on, trusted, third-party mutual authentication service. 
+																																				There is a component called <em>Key Distribution Center</em> (KDC) that consists of three logical components: a database of all principals and their associated encryption keys, the Authentication Server, and the Ticket Granting Server. </p>
+
+																																				<h3><a name="concepts"></a>2.2.1&nbsp;Concepts</h3>
+																																				<p><em>Principal</em>: Every entity contained within a Kerberos installation, including individual users, computers, and services running on servers, has a principal associated with it. Each principal is associated with a long-term key.</p>
+
+																																				<p><em>Realm</em>: Each Kerberos installation defines an administrative realm of control that is distinct from every other Kerberos installation.</p>
+
+																																				<p><em>Key</em>: Are shared in between two parties, a user or service and the KDC.</p>
+
+																																				<p><em>Authentication Server</em>: The Authentication Server (AS) issues an encrypted Ticket Granting Ticket (also known as a TGT) to clients who wish to &ldquo;log in&rdquo; to the Kerberos realm. The client does not have to prove its identity to the KDC; instead, the TGT that is sent back to the client is encrypted in the user&rsquo;s password. Since only the user and the KDC know the user&rsquo;s password, when the login process attempts to decrypt the ticket using the password supplied by the user, only the correct password will correctly decrypt the ticket. If an incorrect password is used, the ticket will decrypt into garbage, and the user is prompted to try again. </p>
+
+																																				<p><em>Key Distribution Center</em> : described before.</p>
+
+																																				<p><em>Ticket Granting Server</em>: issues individual service tickets to clients as they request them.</p>
+
+																																				<p><em>Ticket</em>: it is like a license (issued by the KDC) that confirms your identity. Just like a license in the real world, each ticket issued by Kerberos includes data about you.</p>
+
+																																				<h3><a name="protocols"></a>2.2.2&nbsp;Protocols</h3>
+
+																																				<h4 id="needham-schroeder-protocol">Needham-Schroeder Protocol</h4>
+
+																																				<p>This protocol is the base of Kerberos AuthN method.</p>
+
+																																				<p>The concept behind the Needham-Schroeder protocol is not to authenticate the user directly by sending a password or password equivalent (such as a hash of the password) to the authentication server. Instead, the Needham-Schroeder protocol provides a mechanism to securely distribute a short-lived encryption key to two parties (a client and a server) so their communication can be secured with the encryption key. The verification of each endpoint&rsquo;s identity happens to be a side effect of this key exchange process. </p>
+
+																																				<p>The protocol begins with the client contacting the authentication server. The client sends the authentication server a message containing the its own identity and the identity of the application server that it wishes to contact. In addition, the client includes a nonce, or a random value, with its request.</p>
+
+																																				<p>The authentication server receives this information and locates the secret encryption keys it has stored for both the client and application server. It also creates a third key, the session key, which can be used to enable secure communication between the client and application server. This new key is a random key generated by the authentication server, is completely unrelated to the long-term keys of both the client and server, and is never reused. </p>
+
+																																				<p>Next comes the tricky part. In the Needham-Schroeder protocol, the authentication server never communicates directly with the application server, only the client. Therefore, the authentication server sends a reply back to the client that includes the session key and the verified identities of both parties. But how can this message be kept secure from an observer who is watching network traffic to snag these session keys as they pass through the wire? And furthermore, when the client transmits the session key and its identity to the application server, how does the application server know that the client is not lying, and that the message is authentic? 
+																																				The answer involves several layers of encryption. First, a message is constructed that is intended to be viewed only by the application server. This message includes the name of the requesting client and the session key. To keep this message secure from eavesdropping and tampering by a malicious client, it is encrypted with the long-term key of the application server. Since only the application server and the authentication server know this key, an attacker cannot decrypt this message to alter the contents or steal the session key. In Kerberos terminology, this encrypted message is also known as a ticket. </p>
+
+																																				<p>The message is wrapped inside of another message, this one intended for the client. The client message also includes the name of the application server, a copy of the session key, and a copy of the nonce originally sent in the first message. The whole message is then encrypted with the client&rsquo;s long-term key. Once all the information has been assembled and encrypted, the authentication server sends it to the client.</p>
+
+																																				<h4 id="asn1">ASN.1</h4>
+
+																																				<p>ASN.1 is an acronym for Abstract Syntax Notation One. It defines a methodology for describing protocol definitions in an abstract notation, and then provides several methods to convert those abstract definitions into a stream of bytes for transmission over a communications network.</p>
+
+																																				<h3><a name="heimdal"></a>2.2.3&nbsp;Heimdal</h3>
+
+																																				<p>Heimdal is an open source implementation of Kerberos 5. </p>
+
+																																				<p>Here is a very useful video for a <a href="http://www.youtube.com/watch?v=b2BdTXb5nds">crash introduction to Heimdal</a></p>
+
+																																				<p><a href="http://www.kerberos-walkthrough.de">Kerberos walktrough</a></p>
+
+																																				<h2><a name="ldap"></a>2.3&nbsp;LDAP</h2>
+																																				<p>LDAP stands for Lightweight Directory Access Protocol it is not itself either hardware or software, but a protocol to define how a client and server interact with each other. An LDAP directory is used to describe a directory whose server corresponds to this protocol.</p>
+																																				<p></p>
+																																				<p>
+																																				<h3><a name="openldap"></a>2.3.1&nbsp;OpenLDAP</h3>
+																																				<p><a href="http://www.openldap.org/">openLdap website</a></p>
+																																				<p></p>
+																																				<h2><a name="integratingopenldapwithkerberosheimdal"></a>2.4&nbsp;Integrating OpenLDAP with Kerberos Heimdal</h2>
+
+																																				<a href="http://www.linux-mag.com/id/4738/?site=linuxonblades&sid=main" class="simple_link">guide 1</a>
+																																				<a href="http://www.linux-mag.com/id/4765/" class="simple_link">guide 2 </a>
+
+																																				<h3><a name="setthevirtualmachines"></a>2.4.1&nbsp;Set the virtual machines</h3>
+																																				<p>We copy the image from /lustre/rz/vpenso/images/debian64-6.0.4-chef-client-0.10.8.kvm.tgz into lxgrid5.gsi.de (this is just an example system).  </p>
+
+																																				<p>Inside lxgrid5.gsi.de I have lxcm01.devops.gsi.de as Chef-server. All machines will have Chef-client and will connect to it. Actually, I have chosen to distribute an image with already a chef client on it to save time.  </p>
+
+																																				<p>With each virtual machine, we will proceed this way (we are considering we already have defined the network bridge and we have assigned corresponding ip addresses).</p>
+
+																																				<div class="highlight"><pre><code>amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>cp -r ../debian64-6.0.4-chef-client-0.10.8/keys/ .  
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>cp ../debian64-6.0.4-chef-client-0.10.8/disk.img  
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>virsh create ./libvirt_instance.xml  
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>vmname lxb001.devops.gsi.de  10.1.1.4  
+</code></pre></div>
+
+																																				<h3><a name="installheimdal"></a>2.6.2&nbsp;Installation and configuration of Heimdal</h3>
+
+																																				<p>This is a summary of a more extensive documentation in <a href="http://www.h5l.org">heimdal website</a>.</p>
+
+																																				<p>We download the cookbook from <a href="http://gitorious.gsi.de/">gitorius</a>.  I have it already on my chef-server at lxcm01.devops.gsi.de.<br />
+																																				We can check our cookbooks just by:  </p>
+
+																																				<div class="highlight"><pre><code>devops@lxcm01:~<span class="nv">$ </span>knife cookbook list
+heimdal   0.0.1
+lazydns   0.2.0
+nis       0.1.2
+ntp       0.1.0
+resolv    1.0.0
+</code></pre></div>
+
+																																				<p>To connect any machine (lxb001.devops.gsi.de in the example) to chef-server we have to configure the client to connect to the server. We indicate this inside /etc/chef/client.rb:  </p>
+
+																																				<div class="highlight"><pre><code>devops@lxb001:/etc/chef<span class="nv">$ </span>cat client.rb 
+log_level        :info
+log_location     STDOUT
+chef_server_url  <span class="s1">&#39;http://lxcm01.devops.gsi.de:4000&#39;</span>
+validation_client_name <span class="s2">&quot;chef-validator&quot;</span>
+validation_key <span class="s2">&quot;/etc/chef/validation.pem&quot;</span>
+client_key <span class="s2">&quot;/etc/chef/client.pem&quot;</span>
+file_cache_path <span class="s2">&quot;/srv/chef/cache&quot;</span>
+pid_file <span class="s2">&quot;/var/run/chef/chef-client.pid&quot;</span>
+</code></pre></div>
+
+																																				<p>Now we copy the validation.pem certificate into the right place. Previosly I have copied this certificate outside the chef-server, in the directory that contains the vm. </p>
+
+																																				<div class="highlight"><pre><code> amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>cp ../lxcm01.devops.gsi.de/validation.pem .
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>vmput validation.pem /tmp/
+Warning: Permanently added <span class="s1">&#39;10.1.1.4&#39;</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts.
+validation.pem                                                                                            100%      1675     1.6KB/s   00:00    
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>vmssh <span class="s1">&#39;sudo mv /tmp/validation.pem /etc/chef/&#39;</span>
+</code></pre></div>
+
+																																				<p>Now if we restart the chef-client inside lxb001.devops.gsi.de, it should connect directly to the chef-server. </p>
+
+																																				<div class="highlight"><pre><code>devops@lxb001:/etc/chef<span class="nv">$ </span>sudo /etc/init.d/chef-client restart
+Restarting chef-client: chef-client.
+devops@lxb001:/etc/chef<span class="nv">$ </span>tail -f /var/log/chef/client.log 
+<span class="o">[</span>Thu, 10 May 2012 16:21:36 +0200<span class="o">]</span> INFO: *** Chef 0.10.8 ***
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Client key /etc/chef/client.pem is not present - registering
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: HTTP Request Returned 404 Not Found: Cannot load node lxb001.devops.gsi.de
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Run List is <span class="o">[]</span>
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Run List expands to <span class="o">[]</span>
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Starting Chef Run <span class="k">for </span>lxb001.devops.gsi.de
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Running start handlers
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Start handlers complete.
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Loading cookbooks <span class="o">[]</span>
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> WARN: Node lxb001.devops.gsi.de has an empty run list.
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Chef Run <span class="nb">complete </span>in 0.159305 seconds
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Running report handlers
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Report handlers <span class="nb">complete</span>
+</code></pre></div>
+
+																																				<p>We want to run Heimdal <strong>server</strong>, so we edit the attributes of the node we just created according to our needs. It should look something like this: </p>
+
+																																				<div class="highlight"><pre><code><span class="o">{</span>
+<span class="s2">&quot;normal&quot;</span>: <span class="o">{</span>
+<span class="s2">&quot;tags&quot;</span>: <span class="o">[</span>
+<span class="o">]</span>,
+<span class="s2">&quot;krb5&quot;</span>: <span class="o">{</span>
+<span class="s2">&quot;adm_server&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>,
+<span class="s2">&quot;realm_name&quot;</span>: <span class="s2">&quot;DEVOPS.GSI.DE&quot;</span>,
+<span class="s2">&quot;kdc&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>
+<span class="o">}</span>
+<span class="o">}</span>,
+<span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>,
+<span class="s2">&quot;chef_environment&quot;</span>: <span class="s2">&quot;_default&quot;</span>,
+<span class="s2">&quot;run_list&quot;</span>: <span class="o">[</span>
+<span class="s2">&quot;recipe[heimdal::server]&quot;</span>,
+<span class="s2">&quot;recipe[ntp]&quot;</span>
+<span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+
+																																				<p>With this recipe we have installed the necessary packages, created the initial database and defined the initial ACLs.  </p>
+
+																																				<p>We check everything is there the way we want: </p>
+
+																																				<ul>
+																																								<li>The configuration file for our realm: /etc/krb5.conf</li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb001:/home/devops# cat /etc/krb5.conf
+<span class="o">[</span>libdefaults<span class="o">]</span>  
+
+ticket_lifetime		= 28800
+dns_lookup_realm 	= false
+dns_lookup_kdc 		= false
+fcc-mit-ticketflags 	= true
+forwardable = TRUE
+[realms]
+
+DEVOPS.GSI.DE = {
+kdc 		     = lxb001.devops.gsi.de
+admin_server 	     = lxb001.devops.gsi.de
+default_domain 	     = devops.gsi.de
+}
+
+[domain_realm]
+
+devops.gsi.de = DEVOPS.GSI.DE
+
+[logging]
+default = FILE:/var/log/heimdal/default.log
+</code></code></pre>
+
+																																				<p><strong>To make forwardable tickets we set the option [libdefaults] forwardable = TRUE</strong> also in the clients.</p>
+
+																																				<ul>
+																																								<li>The file where the master key of the whole database is created: </li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb001:/home/devops# ls -la  /var/lib/heimdal-kdc/m-key
+-rw------- 1 root root 74 May 10 16:54 /var/lib/heimdal-kdc/m-key
+</code></pre></div>
+
+																																				<ul>
+																																								<li>The configuration file for the Key Distribution Center (KDC) server</li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb001:/home/devops# cat /etc/heimdal-kdc/kdc.conf 
+<span class="o">[</span>kdc<span class="o">]</span>
+dbname = /var/lib/heimdal-kdc/devops.gsi.de
+realm =  DEVOPS.GSI.DE
+acl_file = /etc/heimdal-kdc/kadm5.acl
+key_stash_file = /etc/heimdal-kdc/stash
+max_life = 24h 0m 0s
+max_renewable_life = 7d 0h 0m 0s
+master_key_type = des3-cbc-sha1
+supported_enctypes = des3-hmac-sha1:normal des-cbc-crc:normal des3-cbc-sha1:normal aes256-cts-hmac-sha1-96 
+default_principal_flags = +preauth
+
+}
+
+[logging]
+
+kadmind		= FILE:/var/log/heimdal/kadmin.log
+kpasswdd	= FILE:/var/log/heimdal/kpasswdd.log
+default		= FILE:/var/log/heimdal/heimdal.log
+
+# detach = boolean
+
+# Gives an upper limit on the size of the requests that the kdc is
+# willing to handle.
+# max-request =  integer
+
+# Turn off the requirement for pre-autentication in the initial AS-
+# REQ for all principals.  The use of pre-authentication makes it
+# more difficult to do offline password attacks.  You might want to
+# turn it off if you have clients that don't support pre-authenti-
+# cation.  Since the version 4 protocol doesn't support any pre-
+# authentication, serving version 4 clients is just about the same
+# as not requiring pre-athentication.  The default is to require
+# pre-authentication.  Adding the require-preauth per principal is
+# a more flexible way of handling this.
+# require-preauth = boolean
+
+# Specifies the set of ports the KDC should listen on.  It is given
+# as a white-space separated list of services or port numbers.
+# ports = 88,750
+
+# The list of addresses to listen for requests on.  By default, the
+# kdc will listen on all the locally configured addresses.  If only
+# a subset is desired, or the automatic detection fails, this
+# option might be used.
+# addresses = list of ip addresses
+
+# respond to Kerberos 4 requests
+# enable-kerberos4 = false
+
+# respond to Kerberos 4 requests from foreign realms.  This is a
+# known security hole and should not be enabled unless you under-
+# stand the consequences and are willing to live with them.
+# enable-kerberos4-cross-realm = false
+
+# respond to 524 requests
+# enable-524 = value of enable-kerberos4
+
+# Makes the kdc listen on port 80 and handle requests encapsulated
+# in HTTP.
+# enable-http = boolean
+
+# What realm this server should act as when dealing with version 4
+# requests.  The database can contain any number of realms, but
+# since the version 4 protocol doesn't contain a realm for the
+# server, it must be explicitly specified.  The default is whatever
+# is returned by krb_get_lrealm().  This option is only availabe if
+# the KDC has been compiled with version 4 support.
+# v4-realm = string
+
+# Enable kaserver emulation (in case it's compiled in).
+# enable-kaserver = false
+</code></code></pre>
+
+																																				<ul>
+																																								<li>And also, we check the processes running: </li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb001:/home/devops# ps -fea | grep heim
+root     13456     1  0 10:34 ?        00:00:00 /usr/lib/heimdal-servers/kdc --    config-file<span class="o">=</span>/etc/heimdal-kdc/kdc.conf
+root     13457     1  0 10:34 ?        00:00:00 /usr/lib/heimdal-servers/    kpasswdd
+root@lxb001:/home/devops# tail -4 /etc/inetd.conf 
+<span class="c">#:OTHER: Other services</span>
+
+kerberos-adm	stream	tcp	nowait	root	/usr/sbin/tcpd /usr/lib/heimdal-servers/kadmind
+<span class="c">#krb_prop	stream	tcp	nowait	root	/usr/sbin/tcpd /usr/sbin/hpropd</span>
+</code></pre></div>
+
+																																				<ul>
+																																								<li>We can check locally the database: </li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb001:/home/devops# kadmin -l
+kadmin&gt; list *
+default
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+</code></pre></div>
+
+																																				<ul>
+																																								<li>We change the password for the kadmin/admin user. All modifications of principals are done with with kadmin. A principal has several attributes and lifetimes associated with it. We create a user principal for starting: </li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb001:/home/devops# kadmin -l
+kadmin&gt; cpw kadmin/admin
+kadmin/admin@DEVOPS.GSI.DE<span class="s1">&#39;s Password: </span>
+<span class="s1">Verifying - kadmin/admin@DEVOPS.GSI.DE&#39;</span>s Password: 
+kadmin&gt; add almudena
+Max ticket life <span class="o">[</span>1 day<span class="o">]</span>:
+Max renewable life <span class="o">[</span>1 week<span class="o">]</span>:
+Principal expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Password expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Attributes <span class="o">[]</span>:
+almudena@DEVOPS.GSI.DE<span class="s1">&#39;s Password: </span>
+<span class="s1">Verifying - almudena@DEVOPS.GSI.DE&#39;</span>s Password: 
+kadmin&gt; list *
+default
+almudena
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+kadmin&gt; list -l almudena
+Principal: almudena@DEVOPS.GSI.DE
+Principal expires: never
+Password expires: never
+Last password change: 2012-05-11 09:52:26 UTC
+Max ticket life: 1 day
+Max renewable life: 1 week
+		 Kvno: 1
+		Mkvno: unknown
+Last successful login: never
+Last failed login: never
+Failed login count: 0
+Last modified: 2012-05-11 09:52:26 UTC
+ Modifier: kadmin/admin@DEVOPS.GSI.DE
+Attributes: 
+ Keytypes: aes256-cts-hmac-sha1-96<span class="o">(</span>pw-salt<span class="o">)</span>, des3-cbc-sha1<span class="o">(</span>pw-salt<span class="o">)</span>, arcfour-hmac-md5<span class="o">(</span>pw-salt<span class="o">)</span>
+PK-INIT ACL: 
+	Aliases: 
+</code></pre></div>
+
+																																				<ul>
+																																								<li>We will allow the user kadmin/admin to access remotely. We set this in the acl: </li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb001:/home/devops# cat /etc/heimdal-kdc/kadmind.acl 
+<span class="c">#principal       [priv1,priv2,...]       [glob-pattern]</span>
+kadmin/admin	all
+root@lxb001:/home/devops# /etc/init.d/heimdal-kdc restart
+Stopping Heimdal password server: kpasswdd.
+Stopping Heimdal KDC: heimdal-kdc.
+Starting Heimdal KDC: heimdal-kdc.
+Starting Heimdal password server: kpasswdd.  
+</code></pre></div>
+
+																																				<p>For the <strong>clients</strong>, we change the recipe to be executed to heimdal::client, like this:</p>
+
+																																				<div class="highlight"><pre><code><span class="o">{</span>
+<span class="s2">&quot;normal&quot;</span>: <span class="o">{</span>
+<span class="s2">&quot;tags&quot;</span>: <span class="o">[</span>
+<span class="o">]</span>,
+<span class="s2">&quot;krb5&quot;</span>: <span class="o">{</span>
+<span class="s2">&quot;adm_server&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>,
+<span class="s2">&quot;realm_name&quot;</span>: <span class="s2">&quot;DEVOPS.GSI.DE&quot;</span>,
+<span class="s2">&quot;kdc&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>
+<span class="o">}</span>
+<span class="o">}</span>,
+<span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;lxb002.devops.gsi.de&quot;</span>,
+<span class="s2">&quot;chef_environment&quot;</span>: <span class="s2">&quot;_default&quot;</span>,
+<span class="s2">&quot;run_list&quot;</span>: <span class="o">[</span>
+<span class="s2">&quot;recipe[heimdal::client]&quot;</span>,
+<span class="s2">&quot;recipe[ntp]&quot;</span>
+<span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+
+																																				<p>We check that everything is there in the way we want: </p>
+
+																																				<ul>
+																																								<li>The configuration file is the same as in the server: /etc/krb5.conf</li>
+																																								<li>The processes running.</li>
+																																				</ul>
+
+																																				<p>Because we added before in the ACL the access to the admin user, then we should be able to access through it. 
+																																				We need to create a principal for the ssh server.</p>
+
+																																				<div class="highlight"><pre><code>devops@lxb002:/etc<span class="nv">$ </span>/usr/sbin/kadmin -p kadmin/admin
+kadmin&gt; list *
+kadmin/admin@DEVOPS.GSI.DE<span class="err">&#39;</span>s Password: 
+default
+almudena
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+kadmin&gt; add --random-key host/lxb002.devops.gsi.de
+Max ticket life <span class="o">[</span>1 day<span class="o">]</span>:
+Max renewable life <span class="o">[</span>1 week<span class="o">]</span>:
+Principal expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Password expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Attributes <span class="o">[]</span>:
+kadmin&gt; list *
+default
+almudena
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+host/lxb002.devops.gsi.de
+kadmin&gt; ext_keytab --keytab<span class="o">=</span>/tmp/keytab host/lxb002.devops.gsi.de
+kadmin&gt; <span class="nb">exit</span>
+devops@lxb002:~$sudo mv /tmp/keytab /etc/krb5.keytab
+</code></code></pre>
+
+																																				<p>Our sample client will be a ssh server.<br />
+																																				We modify the configuration of our ssh server to accept API authentication:</p>
+
+																																				<div class="highlight"><pre><code>root@lxb002:/etc# <span class="nb">echo</span> <span class="s2">&quot;GSSAPIAuthentication yes&quot;</span> &gt;&gt; /etc/ssh/sshd_config
+root@lxb002:/etc# <span class="nb">echo</span> <span class="s2">&quot;KerberosAuthentication yes&quot;</span> &gt;&gt;/etc/ssh/sshd_config
+root@lxb002:/etc# /etc/init.d/ssh restart
+root@lxb002:/etc# useradd -m -s /bin/bash almudena <span class="c"># we dont set a password, we will use kerberos</span>
+</code></pre></div>
+																																				<p>We also need to configure the ssh client to be able to forward the tickets to another hosts. </p>
+																																				<div class="highlight"><pre><code>root@lxb002:/home/devops# cat /etc/ssh/ssh_config
+Host *
+		SendEnv LANG LC_*
+		HashKnownHosts yes
+		GSSAPIAuthentication yes
+		<font color=red>GSSAPIDelegateCredentials yes</font></code></pre></div>
+
+																																				<p>Now we install a third machine, with heimdal::client too. This will be the ssh client testing the ssh-server kerberized with the account almudena.</p>
+
+																																				<ul>
+																																								<li>We create again here an account with no password:</li>
+																																				</ul>
+
+																																				<div class="highlight"><pre><code>root@lxb003:/home/devops# useradd -m -s /bin/bash almudena
+devops@lxb003:~<span class="nv">$ </span>su - almudena
+Password: 
+almudena@lxb003:~<span class="nv">$ </span>klist
+Credentials cache: FILE:/tmp/krb5cc_1001_EI5sxs
+Principal: almudena@DEVOPS.GSI.DE
+<p>Issued           Expires          Principal
+May 11 12:35:16  May 11 22:35:16  krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE</p>
+</code></pre>
+																																				</div><p>This is what we see in the kdc log file: 
+																																				<div class="highlight"><pre><code>2012-05-11T12:35:16 ENC-TS Pre-authentication succeeded &ndash; almudena@DEVOPS.GSI.DE using aes256-cts-hmac-sha1-96
+2012-05-11T12:35:16 AS-REQ authtime: 2012-05-11T12:35:16 starttime: unset endtime: 2012-05-11T22:35:16 renew till: unset
+2012-05-11T12:35:16 Client supported enctypes: aes256-cts-hmac-sha1-96, aes128-cts-hmac-sha1-96, des3-cbc-sha1, des3-cbc-md5, arcfour-hmac-md5, using aes256-cts-hmac-sha1-96/aes256-cts-hmac-sha1-96
+2012-05-11T12:35:16 Requested flags: proxiable, forwardable
+2012-05-11T12:35:16 sending 667 bytes to IPv4:10.1.1.6</p></code></pre></div>
+																																				<p>We attempt now to connect to the ssh server, this is the kdc output</p>
+																																				<div class="highlight"><pre><code>2012-05-11T12:38:29 AS-REQ almudena@DEVOPS.GSI.DE from IPv4:10.1.1.5 for krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE
+2012-05-11T12:38:29 No preauth found, returning PREAUTH-REQUIRED &ndash; almudena@DEVOPS.GSI.DE
+2012-05-11T12:38:29 sending 279 bytes to IPv4:10.1.1.5
+2012-05-11T12:38:29 AS-REQ almudena@DEVOPS.GSI.DE from IPv4:10.1.1.5 for krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE
+2012-05-11T12:38:29 Client sent patypes: encrypted-timestamp
+2012-05-11T12:38:29 Looking for PKINIT pa-data &ndash; almudena@DEVOPS.GSI.DE
+2012-05-11T12:38:29 Looking for ENC-TS pa-data &ndash; almudena@DEVOPS.GSI.DE
+2012-05-11T12:38:29 ENC-TS Pre-authentication succeeded &ndash; almudena@DEVOPS.GSI.DE using aes256-cts-hmac-sha1-96
+2012-05-11T12:38:29 AS-REQ authtime: 2012-05-11T12:38:29 starttime: unset endtime: 2012-05-11T22:38:29 renew till: unset
+2012-05-11T12:38:29 Client supported enctypes: aes256-cts-hmac-sha1-96, aes128-cts-hmac-sha1-96, des3-cbc-sha1, des3-cbc-md5, arcfour-hmac-md5, using aes256-cts-hmac-sha1-96/aes256-cts-hmac-sha1-96
+2012-05-11T12:38:29 Requested flags: proxiable, forwardable
+2012-05-11T12:38:29 sending 667 bytes to IPv4:10.1.1.5
+2012-05-11T12:38:29 TGS-REQ almudena@DEVOPS.GSI.DE from IPv4:10.1.1.5 for host/lxb002.devops.gsi.de@DEVOPS.GSI.DE [canonicalize]
+2012-05-11T12:38:29 TGS-REQ authtime: 2012-05-11T12:38:29 starttime: 2012-05-11T12:38:29 endtime: 2012-05-11T22:38:29 renew till: unset
+2012-05-11T12:38:29 sending 676 bytes to IPv4:10.1.1.5
+</code></pre></div>
+
+																																				<p>We implement the SSO with forwardable tickets. </p>
+																																				<p>But there is a weird thing right now: </p>
+																																				<div class="highlight"><pre><code>almudenilla@lxb003:~$ man kinit
+KINIT(1)                BSD General Commands Manual                KINIT(1)
+
+NAME
+		 kinit — acquire initial tickets
+(...)
+		 -f, --forwardable
+						 Get ticket that can be forwarded to another host.
+</code></pre></div>
+
+																																				<p>But the command does </p>
+																																				<div class="highlight"><pre><code>almudenilla@lxb003:~$ kinit --help
+(...)
+-f, --no-forwardable                      get forwardable tickets</code></pre></div>
+																																				<p>And when we do, we get the following log messages in the KDC:</p>
+																																				<div class="highlight"><pre><code>2012-05-30T14:07:51 AS-REQ almudenilla@DEVOPS.GSI.DE from IPv4:10.1.1.6 for krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE
+2012-05-30T14:07:51 No preauth found, returning PREAUTH-REQUIRED -- almudenilla@DEVOPS.GSI.DE
+2012-05-30T14:07:51 sending 285 bytes to IPv4:10.1.1.6
+2012-05-30T14:07:51 AS-REQ almudenilla@DEVOPS.GSI.DE from IPv4:10.1.1.6 for krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE
+2012-05-30T14:07:51 Client sent patypes: encrypted-timestamp
+2012-05-30T14:07:51 Looking for PKINIT pa-data -- almudenilla@DEVOPS.GSI.DE
+2012-05-30T14:07:51 Looking for ENC-TS pa-data -- almudenilla@DEVOPS.GSI.DE
+2012-05-30T14:07:51 ENC-TS Pre-authentication succeeded -- almudenilla@DEVOPS.GSI.DE using aes256-cts-hmac-sha1-96
+2012-05-30T14:07:51 AS-REQ authtime: 2012-05-30T14:07:51 starttime: unset endtime: 2012-05-31T00:07:51 renew till: unset
+2012-05-30T14:07:51 Client supported enctypes: aes256-cts-hmac-sha1-96, aes128-cts-hmac-sha1-96, des3-cbc-sha1, des3-cbc-md5, arcfour-hmac-md5, using aes256-cts-hmac-sha1-96/aes256-cts-hmac-sha1-96
+<font color="red">2012-05-30T14:07:51 Requested flags: proxiable</font>
+2012-05-30T14:07:51 sending 676 bytes to IPv4:10.1.1.6
+</code></pre></div>
+																																				<p>We try to log in to lxb002 itself and we do not get the ticket forwarded to another host. Instead, we are asked the password:</p>
+																																				<div class="highlight"><pre><code>almudenilla@lxb003:~$ kinit -f
+almudenilla@DEVOPS.GSI.DE's Password: 
+almudenilla@lxb003:~$ ssh lxb002
+Linux lxb002 2.6.32-5-amd64 #1 SMP Mon Jan 16 16:22:28 UTC 2012 x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed May 30 16:09:43 2012 from lxb003.devops.gsi.de
+almudenilla@lxb002:~$ ssh lxb003
+almudenilla@lxb003's password: 
+</code></pre></div>
+
+																																				<p>So, in summary, the requirements are: 
+																																				<ul>
+																																								<li>Any ssh server that we want to log into, should be configured to be able to get kerberos authn. Set "GSSAPIAuthentication yes" and "KerberosAuthentication yes" in /etc/ssh/sshd_config.
+																																								<li>Any ssh server should be a principle inside Heimdal.
+																																								<li>We should invoke tickets with no "-f" option.
+																																				</ul>
+																																				</p>
+
+
+																																				<h1><a name="usecaseforfair"></a>3&nbsp;Use case for FAIR</h1>
+
+																																				<p>The actual use case for FAIR would be a computing center, located at GSI, and at LOEWE. Eventually, satellite Universities or scientific organizations, geographycally close, may take part of the infrastructure.
+																																				A user may send a job from GSI facility and use data from LOEWE file systems. 
+																																				So mainly the federated access would be towards file systems and remote computing from long-term users.</p>
+
+																																				<p>Current technologies federating access to resources mostly rely on applications running on an HTTP agent. Such is the case of Shibboleth, running on 
+																																				top of <a href="fedid/saml.html" class="simple_link">SAML</a>. These technologies have been used widely in todays outsourced resources, like Google mail accounts, and generally in 
+																																				Internet2 applications. These solutions allow an organization providing services over the web to consume the identities of its research partners, 
+																																				business partners, customers or other affiliates. The users would use the same credential as they are using for accessing their local resources. </p>
+
+																																				<p>We are more interested in federating access to resources that do not rely in a HTTP agent. However, today there is no good solution to take this 
+																																				federated identity management to applications beyond the web such as e-mail, instant messaging, file sharing, or remote computing. Moonshot is the 
+																																				effort to federate access tu such resources. </p>
+
+																																				<p>These are the main applications we are interested in federate: </p>
+
+																																				<ul>
+																																								<li>Remote computing.</li>
+																																								<li>File systems, such as ext3, NFS, Lustre.</li>
+																																				</ul>
+
+																																				<p>Nowadays, Moonshot does not have a solution for Lustre. There have been some efforts to solve this problem inside the project <a href="https://www.xsede.org/tg-archives" class="simple_link">Tera 
+																																								Grid</a>. In this context, the project <a href="http://pti.iu.edu/dc" class="simple_link">Data Capacitor</a> from the University of Indiana, have 
+																																				developed a large data storage system based on use of the <a href="http://www.lustre.org/docs/whitepaper.pdf" class="simple_link">Lustre</a> file system.</p>
+
+																																				<p><a href="http://www.teragridforum.org/mediawiki/index.php?title=Lustre-WAN" class="simple_link">Lustre WAN</a> is a project inside Data Capacity that enables Lustre file systems, 
+																																				as it has been demonstrated to have exceptional capabilities, to be able to move data to inside Tera Grid from outside institutions. For this it was 
+																																				necessary to ensure that access to files and permissions could be managed properly. This solution is explained in <a href="a19-simms.pdf" class="simple_link">Enabling Lustre WAN for 
+																																								Production Use on the TeraGrid</a></p>
+
+
+																																				<h1><a name="chefserver"></a>1&nbsp;Chef server</h1>
+
+																																				<p>In order to create a testing infrastructure the best is to use some configuration management that allows automatization. It is necessary to be able to create-destroy-recreate any infrastructure. This is also a requirement policy on the Configuration Management phylosophy at GSI. Chef will be used. </p>
+
+																																				<p>In this case, I deploy an independent network only visible inside the machine lxgrid5, because so far it is not as relevant work as to make it accessible. I will follow the chef-server model, one node will be a workstation running chef-server. The other nodes will run a chef client and will be configured from the server.</p>
+
+																																				<p>All the virtual machines (VMs) will run under a NATed subnetwork. This is the current configuration:</p>
+																																				<div class="highlight"><pre><code>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test/$ virsh net-dumpxml nat_bridge
+<span class="nt">&lt;network&gt;</span>
+	<span class="nt">&lt;name&gt;</span>nat_bridge<span class="nt">&lt;/name&gt;</span>
+	<span class="nt">&lt;uuid&gt;</span>40aa03bf-ba9a-e5e1-5566-8f8ecab56d5b<span class="nt">&lt;/uuid&gt;</span>
+	<span class="nt">&lt;forward</span> <span class="na">mode=</span><span class="s">&#39;nat&#39;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;bridge</span> <span class="na">name=</span><span class="s">&#39;nbr0&#39;</span> <span class="na">stp=</span><span class="s">&#39;on&#39;</span> <span class="na">delay=</span><span class="s">&#39;0&#39;</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;domain</span> <span class="na">name=</span><span class="s">&#39;devops.test&#39;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;ip</span> <span class="na">address=</span><span class="s">&#39;10.1.1.1&#39;</span> <span class="na">netmask=</span><span class="s">&#39;255.255.255.0&#39;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;dhcp&gt;</span>
+			<span class="nt">&lt;range</span> <span class="na">start=</span><span class="s">&#39;10.1.1.20&#39;</span> <span class="na">end=</span><span class="s">&#39;10.1.1.254&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:02&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdns01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.2&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:03&#39;</span> <span class="na">name=</span><span class="s">&#39;lxcm01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.3&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:04&#39;</span> <span class="na">name=</span><span class="s">&#39;lxrm01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.4&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:05&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb001.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.5&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:06&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb002.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.6&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:07&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb003.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.7&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:08&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb004.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.8&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:09&#39;</span> <span class="na">name=</span><span class="s">&#39;lxmon01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.9&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0A&#39;</span> <span class="na">name=</span><span class="s">&#39;lxfs01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.10&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0B&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdev01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.11&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0C&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdev02.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.12&#39;</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0D&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdev03.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.13&#39;</span> <span class="nt">/&gt;</span>
+		<span class="nt">&lt;/dhcp&gt;</span>
+	<span class="nt">&lt;/ip&gt;</span>
+<span class="nt">&lt;/network&gt;</span>
+</code></pre></div>
+
+																																				<p>The DNS will be installed/configured by using chef-solo, because we will need it before we have the configuration management server. The recipe used will be <a href="http://gitorious.gsi.de/site-cookbooks/lazydns">lazyDNS</a> <strong><em>NOTE</em></strong> WE DO NOT REALLY NEED DNS. Just with the configuration of /etc/resolv.conf and DHCP in each machine it should be enough for basic name resolution.</p>
+
+																																				<p>There will be a VM that will run the configuration management (CM), namely, the chef server. The others will have the chef client installed. The recipes on the CM VM will be in sync with the recipies on the physical host lxgrid5.gsi.de, where the kvm hypervisor is.
+																																				Following <a href="http://gitorious.gsi.de/vpenso/kvm_helpers">Victor&rsquo;s guide</a> the following virtual machines are created.</p>
+
+																																				<p>These are the steps to follow: 
+																																				- Provisioning of the VM
+																																				- Install a Chef Server
+																																				- Configure your local workstation
+																																				- Install chef-client on your nodes</p>
+
+																																				<h2><a name="provisioningofthevm"></a>1.1&nbsp;Provisioning of the VM</h2>
+																																				<p>We will copy the image from Lustre. And we will edit some stuff.</p>
+
+																																				<p>Copy and untar the image:</p>
+																																				<div class="highlight"><pre><code>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test<span class="nv">$ </span>scp lx-pool:/lustre/rz/vpenso/images/debian64-6.0.0-chef-server-0.9.14.kvm.tgz .
+amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test<span class="nv">$ </span>tar -xvf ./debian64-6.0.0-chef-server-0.9.14.kvm.tgz
+</code></pre></div>
+
+																																				<p>Edit the file: libvirt_instance.xml accordingly: </p>
+
+																																				<div class="highlight"><pre><code>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ cat libvirt_instance.xml 
+<span class="nt">&lt;domain</span> <span class="na">type=</span><span class="s">&#39;kvm&#39;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;name&gt;</span>lxcm01.devops.test<span class="nt">&lt;/name&gt;</span>
+	<span class="nt">&lt;memory&gt;</span>524288<span class="nt">&lt;/memory&gt;</span>
+	<span class="nt">&lt;vcpu&gt;</span>1<span class="nt">&lt;/vcpu&gt;</span>
+	<span class="nt">&lt;os&gt;</span>
+		<span class="nt">&lt;type</span> <span class="na">arch=</span><span class="s">&quot;x86_64&quot;</span><span class="nt">&gt;</span>hvm<span class="nt">&lt;/type&gt;</span>
+	<span class="nt">&lt;/os&gt;</span>
+	<span class="nt">&lt;clock</span> <span class="na">sync=</span><span class="s">&quot;localtime&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;devices&gt;</span>
+		<span class="nt">&lt;emulator&gt;</span>/usr/bin/kvm<span class="nt">&lt;/emulator&gt;</span>
+		<span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">&#39;file&#39;</span> <span class="na">device=</span><span class="s">&#39;disk&#39;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;source</span> <span class="na">file=</span><span class="s">&#39;/home/amontiel/srv/vms/instances/lxcm01.devops.test/disk.img&#39;</span><span class="nt">/&gt;</span>
+			<span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">&#39;hda&#39;</span><span class="nt">/&gt;</span>
+			<span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">&#39;qemu&#39;</span> <span class="na">type=</span><span class="s">&#39;qcow2&#39;</span><span class="nt">/&gt;</span>
+		<span class="nt">&lt;/disk&gt;</span>
+		<span class="nt">&lt;interface</span> <span class="na">type=</span><span class="s">&#39;bridge&#39;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;source</span> <span class="na">bridge=</span><span class="s">&#39;nbr0&#39;</span><span class="nt">/&gt;</span>
+			<span class="nt">&lt;mac</span> <span class="na">address=</span><span class="s">&#39;02:FF:0A:0A:06:03&#39;</span><span class="nt">/&gt;</span>
+		<span class="nt">&lt;/interface&gt;</span>
+	<span class="nt">&lt;/devices&gt;</span>
+	<span class="nt">&lt;on_poweroff&gt;</span>destroy<span class="nt">&lt;/on_poweroff&gt;</span>
+	<span class="nt">&lt;on_reboot&gt;</span>restart<span class="nt">&lt;/on_reboot&gt;</span>
+	<span class="nt">&lt;on_crash&gt;</span>restart<span class="nt">&lt;/on_crash&gt;</span>
+	<span class="nt">&lt;features&gt;</span>
+		<span class="nt">&lt;acpi/&gt;</span>
+	<span class="nt">&lt;/features&gt;</span>
+<span class="nt">&lt;/domain&gt;</span>
+</code></pre></div>
+
+																																				<p>Create the virtual machine with libvirt.</p>
+
+																																				<div class="highlight"><pre><code>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test<span class="nv">$ </span>virsh create libvirt_instance.xml
+</code></pre></div>
+
+																																				<p>We need to change the hostname assigned initialy. We do this by editing <code>/etc/hosts</code> and also executing <code>sudo hostname lxcm01.devops.test</code>. </p>
+
+																																				<h2><a name="installachefserver"></a>1.2&nbsp;Install a Chef server</h2>
+
+																																				<p>Just follow the <a href="http://wiki.opscode.com/display/chef/Installing+Chef+Server">installation guide</a> from Chef.</p>
+
+																																				<p>To be able to manage Chef server, we have to configure the workstation where it is running. We configure this workstation as it was a client of the Chef server itself.</p>
+
+																																				<p>We copy the cookbooks from gitorious:</p>
+
+																																				<div class="highlight"><pre><code>mkdir ~/chef
+<span class="nb">cd</span> ~/chef
+git clone http://gitorious.gsi.de/site-cookbooks
+</code></pre></div>
+
+																																				<div class="highlight"><pre><code>mkdir -p ~/.chef
+sudo cp /etc/chef/validation.pem /etc/chef/webui.pem ~/.chef
+sudo chown -R <span class="nv">$USER</span> ~/.chef
+knife configure -i
+Where should I put the config file? <span class="o">[</span>~/.chef/knife.rb<span class="o">]</span>
+Please enter the chef server URL: <span class="o">[</span>http://localhost:4000<span class="o">]</span>
+Please enter a clientname <span class="k">for </span>the new client: <span class="o">[</span>devops<span class="o">]</span>
+Please enter the existing admin clientname: <span class="o">[</span>chef-webui<span class="o">]</span>
+Please enter the location of the existing admin client<span class="err">&#39;</span>s private key: <span class="o">[</span>/etc/chef/webui.pem<span class="o">]</span> .chef/webui.pem
+Please enter the validation clientname: <span class="o">[</span>chef-validator<span class="o">]</span>
+Please enter the location of the validation key: <span class="o">[</span>/etc/chef/validation.pem<span class="o">]</span> .chef/validation.pem
+</code></pre></div>
+
+<p>If we try to configure Chef-server for a client that is already existing, lets say we made a mistake and would like to redifine this user, the we face this problem (solved): http://tickets.opscode.com/browse/CHEF-2344</p>
+
+<p>We connect clients:</p>
+
+<p>For connecting nodes, which are both: a client and a node inside Chef server, we need to take the <em>validation</em> certificate into the client. We do the following: </p>
+
+<div class="highlight"><pre><code>amontiel@lxgrid5:/srv/vms/lxcm01.devops.gsi.de<span class="nv">$ </span>vmget /etc/chef/validation.pem .
+amontiel@lxgrid5:/srv/vms/lxcm01.devops.gsi.de<span class="nv">$ </span><span class="nb">cd</span> ../lxid01.devops.gsi.de/
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>cp ../lxcm01.devops.gsi.de/validation.pem .
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>vmput validation.pem /tmp/
+Warning: Permanently added <span class="s1">&#39;10.1.1.19&#39;</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts.
+validation.pem
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>vmput validation.pem /tmp/
+Warning: Permanently added <span class="s1">&#39;10.1.1.19&#39;</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts. validation.pem                                                                                                                     100% 1675     1.6KB/s   00:00    
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>vmssh
+Linux lxid01 2.6.32-5-amd64 <span class="c">#1 SMP Thu Mar 22 17:26:33 UTC 2012 x86_64</span>
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms <span class="k">for </span>each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Fri Mar 30 14:44:30 2012 from 10.1.1.1
+devops@lxid01:~<span class="nv">$ </span>sudo -s
+root@lxid01:/home/devops# mv /tmp/validation.pem /etc/chef/validation.pem
+root@lxid01:/home/devops# /etc/init.d/chef-client restart
+Restarting chef-client: chef-client.
+</code></pre></div>
+</div>       
+
+
+
+
+				</div><!-- end of left content-->
+
+
+
+				<div class="clear"></div>
+</div><!-- main_content-->  
+
+<div id="footer">
+
+				<!--   <img src="images/footer_logo.gif" alt="" title="" class="footer_logo" />-->
+				<div class="left_footer">
+								<script language="Javascript">
+												document.write("This page was last modified on: " + document.lastModified +"");
+								</SCRIPT>        
+				</div>
+				<div class="right_footer">
+								<a href="index.html">Home</a>  |  <a href="about.html">About me</a>  |  <a href="contact.html">Contact</a> | 
+				</div>
+</div>
+
+</div>
+</body>
+</html>

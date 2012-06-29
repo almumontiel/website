@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+
+    /* RESET ALL ELEMENTS  */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, font, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, 
+    form, label, legend, table, caption, tbody, tfoot, 
+    thead, tr, th, td {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+    }
+
+    body { 
+      color: black; 
+      background-color: white;
+      line-height: 1.2em; 
+      max-width: 600px;
+      margin-right: auto; 
+      margin-left: auto; 
+      overflow: visible;
+    }
+
+    /* center the content in the middle of the browser */
+    #display { 
+      height: 100%; 
+      padding: 0;
+      font-family: Georgia, FreeSans, Arial, Helvetica, sans-serif;
+      font-size: 1em;
+      margin-bottom: 2em;
+    }
+
+    /* GENERAL DEFAULTS */
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show; 
+      text-align: center; 
+      font-size: 1em;
+      font-weight: normal;
+      margin-right: auto; 
+      margin-left: auto;
+      margin-top: 1em;
+    }
+    td { 
+      padding-top: 0.15em; 
+      padding-bottom: 0.15em;
+      padding-left: 0.25em; 
+      padding-right: 0.25em;
+      border-bottom: 0.1em solid lightgray;
+      border-collapse: collapse; 
+    }
+    th {
+      padding-top: 0.15em; 
+      padding-bottom: 0.15em;
+      padding-left: 0.5em; 
+      padding-right: 0.5em; 
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 0.3em double lightgray; 
+    }
+
+
+    ol, ul { list-style: none; }
+
+    /* CONTENT AREA  */
+
+    #content p, h1, h2, h3, h4, h5, h6, pre  { 
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    #content p {
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
+    }
+    #content h1 { 
+      font-size: 2.4em;
+      padding-top: 1em;
+      padding-bottom: 0.4em;
+      line-height: 1.2em;
+    }
+    #content h2 { 
+      font-size: 2em;
+      line-height: 1.2em;
+      padding-top: 0.6em; 
+      padding-bottom: 0.4em;
+    }
+    #content h3 { 
+      font-size: 1.8em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+    }
+    #content h4 { 
+      font-size: 1.5em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+      text-decoration: underline;
+    }
+    #content h5 { 
+      font-size: 1.1em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+    }
+    #content ul { 
+      list-style-type: circle;
+      list-style-image: none;
+      list-style-position: outside;
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+    #content ol {
+      list-style-type: decimal;
+      list-style-image: none;
+      list-style-position: outside;
+      margin-left: 3em;
+      margin-right: 2em;
+    }
+    #content img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+      width: auto;
+      display: inline;
+      max-width: 35em;
+    }
+    #content code {
+      font-family: "Courier New", monospace; 
+      font-weight: normal;
+      color: black;
+      background: whitesmoke;
+      font-size: 0.8em;
+    }
+    #content pre {
+      line-height: normal;
+      padding: 0.2em 0.4em 0.2em 0.4em;
+      overflow: hidden; 
+      border: 1px solid whitesmoke;
+      margin: 0.4em;
+      overflow: auto;
+    }
+    #content pre code {
+      font-family: Courier, Verdana, Monaco;
+      margin: 0;
+      padding: 0;
+      color: black;
+      background-color: white;
+      font-size: 1em;
+    }
+    #content a { 
+      color: blue;
+      text-decoration: none; 
+    }
+    #content a:visited { 
+      color: blue; 
+    }
+    #content a:hover {
+      color: lightskyblue;
+      text-decoration: underline; 
+    }
+    #content a:target { 
+      color: blue; 
+    }
+    #content blockquote {
+      padding-left: 1em;
+      padding-right: 4em;
+      font-style: italic;
+    }
+    #content sup {
+      font-size: 0.6em; 
+      vertical-align: top;
+    }
+    #content sub {
+      font-size: 0.6em; 
+      vertical-align: bottom;
+    } 
+
+    /* table of content  */
+    .toc {
+      margin-bottom: 1em;
+      background-color: #F8F8FF;
+      padding:  0.5em;
+    }
+    .toc ul {
+      list-style-type: none;
+      padding-left: 1em; 
+    }
+    .toc li {
+      padding: 0;
+      margin: 0; 
+    }
+    
+    #content .toc a { 
+      color: blue;
+      text-decoration: none; 
+    }
+
+    /* syntax high-lighting for Pygments*/
+    .hll { background-color: #ffffcc }
+    .c { color: #808080 } /* Comment */
+    .err { color: #F00000; background-color: #F0A0A0 } /* Error */
+    .k { color: #008000; font-weight: bold } /* Keyword */
+    .o { color: #303030 } /* Operator */
+    .cm { color: #808080 } /* Comment.Multiline */
+    .cp { color: #507090 } /* Comment.Preproc */
+    .c1 { color: #808080 } /* Comment.Single */
+    .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
+    .gd { color: #A00000 } /* Generic.Deleted */
+    .ge { font-style: italic } /* Generic.Emph */
+    .gr { color: #FF0000 } /* Generic.Error */
+    .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+    .gi { color: #00A000 } /* Generic.Inserted */
+    .go { color: #808080 } /* Generic.Output */
+    .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+    .gs { font-weight: bold } /* Generic.Strong */
+    .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+    .gt { color: #0040D0 } /* Generic.Traceback */
+    .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+    .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+    .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+    .kp { color: #003080; font-weight: bold } /* Keyword.Pseudo */
+    .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+    .kt { color: #303090; font-weight: bold } /* Keyword.Type */
+    .m { color: #6000E0; font-weight: bold } /* Literal.Number */
+    .s { background-color: #fff0f0 } /* Literal.String */
+    .na { color: #0000C0 } /* Name.Attribute */
+    .nb { color: #007020 } /* Name.Builtin */
+    .nc { color: #B00060; font-weight: bold } /* Name.Class */
+    .no { color: #003060; font-weight: bold } /* Name.Constant */
+    .nd { color: #505050; font-weight: bold } /* Name.Decorator */
+    .ni { color: #800000; font-weight: bold } /* Name.Entity */
+    .ne { color: #F00000; font-weight: bold } /* Name.Exception */
+    .nf { color: #0060B0; font-weight: bold } /* Name.Function */
+    .nl { color: #907000; font-weight: bold } /* Name.Label */
+    .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+    .nt { color: #007000 } /* Name.Tag */
+    .nv { color: #906030 } /* Name.Variable */
+    .ow { color: #000000; font-weight: bold } /* Operator.Word */
+    .w { color: #bbbbbb } /* Text.Whitespace */
+    .mf { color: #6000E0; font-weight: bold } /* Literal.Number.Float */
+    .mh { color: #005080; font-weight: bold } /* Literal.Number.Hex */
+    .mi { color: #0000D0; font-weight: bold } /* Literal.Number.Integer */
+    .mo { color: #4000E0; font-weight: bold } /* Literal.Number.Oct */
+    .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
+    .sc { color: #0040D0 } /* Literal.String.Char */
+    .sd { color: #D04020 } /* Literal.String.Doc */
+    .s2 { background-color: #fff0f0 } /* Literal.String.Double */
+    .se { color: #606060; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
+    .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
+    .si { background-color: #e0e0e0 } /* Literal.String.Interpol */
+    .sx { color: #D02000; background-color: #fff0f0 } /* Literal.String.Other */
+    .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
+    .s1 { background-color: #fff0f0 } /* Literal.String.Single */
+    .ss { color: #A06000 } /* Literal.String.Symbol */
+    .bp { color: #007020 } /* Name.Builtin.Pseudo */
+    .vc { color: #306090 } /* Name.Variable.Class */
+    .vg { color: #d07000; font-weight: bold } /* Name.Variable.Global */
+    .vi { color: #3030B0 } /* Name.Variable.Instance */
+    .il { color: #0000D0; font-weight: bold } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<div id="display">
+  <div id="content">
+    <div class="toc">
+<a href="#authnandauthztechnologies">1&nbsp;AuthN and AuthZ technologies</a><br/>
+&nbsp;&nbsp;<a href="#publickeyinfrastructurepki">1.1&nbsp;Public Key Infrastructure (PKI)</a><br/>
+&nbsp;&nbsp;<a href="#kerberos">1.2&nbsp;Kerberos</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#concepts">1.2.1&nbsp;Concepts</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#protocols">1.2.2&nbsp;Protocols</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#heimdal">1.2.3&nbsp;Heimdal</a><br/>
+&nbsp;&nbsp;<a href="#ldap">1.3&nbsp;LDAP</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#openldap">1.3.1&nbsp;OpenLDAP</a><br/>
+&nbsp;&nbsp;<a href="#demo1">1.4&nbsp;DEMO 1</a><br/>
+&nbsp;&nbsp;<a href="#demo2">1.5&nbsp;DEMO 2</a><br/>
+&nbsp;&nbsp;<a href="#integratingopenldapwithkerberosheimdal">1.6&nbsp;Integrating OpenLDAP with Kerberos Heimdal</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#setthevirtualmachines">1.6.1&nbsp;Set the virtual machines</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#installheimdal">1.6.2&nbsp;Install Heimdal</a><br/>
+</div>
+
+<h1><a name="authnandauthztechnologies"></a>1&nbsp;AuthN and AuthZ technologies</h1>
+
+<p>This is a review for the state-of-the-art major authN and authZ technologies in Grid Computing. </p>
+
+<h2><a name="publickeyinfrastructurepki"></a>1.1&nbsp;Public Key Infrastructure (PKI)</h2>
+
+<p>A public key infrastructure consists of:</p>
+
+<ul>
+  <li>A certificate authority (CA) that issues and verifies digital certificate. A certificate includes the public key or information about the public key.</li>
+  <li>A registration authority (RA) that acts as the verifier for the certificate authority before a digital is issued.</li>
+  <li>One or more directories where the certificates (with their public keys) are held.</li>
+</ul>
+
+<p><img src="Public-Key-Infrastructure.png" alt="Schema" /></p>
+
+<h2><a name="kerberos"></a>1.2&nbsp;Kerberos</h2>
+
+<p>Kerberos is a secure, single-sign-on, trusted, third-party mutual authentication service. 
+There is a component called <em>Key Distribution Center</em> (KDC) that consists of three logical components: a database of all principals and their associated encryption keys, the Authentication Server, and the Ticket Granting Server. </p>
+
+<h3><a name="concepts"></a>1.2.1&nbsp;Concepts</h3>
+<p><em>Principal</em>: Every entity contained within a Kerberos installation, including individual users, computers, and services running on servers, has a principal associated with it. Each principal is associated with a long-term key.</p>
+
+<p><em>Realm</em>: Each Kerberos installation defines an administrative realm of control that is distinct from every other Kerberos installation.</p>
+
+<p><em>Key</em>: Are shared in between two parties, a user or service and the KDC.</p>
+
+<p><em>Authentication Server</em>: The Authentication Server (AS) issues an encrypted Ticket Granting Ticket (also known as a TGT) to clients who wish to &ldquo;log in&rdquo; to the Kerberos realm. The client does not have to prove its identity to the KDC; instead, the TGT that is sent back to the client is encrypted in the user&rsquo;s password. Since only the user and the KDC know the user&rsquo;s password, when the login process attempts to decrypt the ticket using the password supplied by the user, only the correct password will correctly decrypt the ticket. If an incorrect password is used, the ticket will decrypt into garbage, and the user is prompted to try again. </p>
+
+<p><em>Key Distribution Center</em> : described before.</p>
+
+<p><em>Ticket Granting Server</em>: issues individual service tickets to clients as they request them.</p>
+
+<p><em>Ticket</em>: it is like a license (issued by the KDC) that confirms your identity. Just like a license in the real world, each ticket issued by Kerberos includes data about you.</p>
+
+<h3><a name="protocols"></a>1.2.2&nbsp;Protocols</h3>
+
+<h4 id="needham-schroeder-protocol">Needham-Schroeder Protocol</h4>
+
+<p>This protocol is the base of Kerberos AuthN method.</p>
+
+<p>The concept behind the Needham-Schroeder protocol is not to authenticate the user directly by sending a password or password equivalent (such as a hash of the password) to the authentication server. Instead, the Needham-Schroeder protocol provides a mechanism to securely distribute a short-lived encryption key to two parties (a client and a server) so their communication can be secured with the encryption key. The verification of each endpoint&rsquo;s identity happens to be a side effect of this key exchange process. </p>
+
+<p>The protocol begins with the client contacting the authentication server. The client sends the authentication server a message containing the its own identity and the identity of the application server that it wishes to contact. In addition, the client includes a nonce, or a random value, with its request.</p>
+
+<p>The authentication server receives this information and locates the secret encryption keys it has stored for both the client and application server. It also creates a third key, the session key, which can be used to enable secure communication between the client and application server. This new key is a random key generated by the authentication server, is completely unrelated to the long-term keys of both the client and server, and is never reused. </p>
+
+<p>Next comes the tricky part. In the Needham-Schroeder protocol, the authentication server never communicates directly with the application server, only the client. Therefore, the authentication server sends a reply back to the client that includes the session key and the verified identities of both parties. But how can this message be kept secure from an observer who is watching network traffic to snag these session keys as they pass through the wire? And furthermore, when the client transmits the session key and its identity to the application server, how does the application server know that the client is not lying, and that the message is authentic? 
+The answer involves several layers of encryption. First, a message is constructed that is intended to be viewed only by the application server. This message includes the name of the requesting client and the session key. To keep this message secure from eavesdropping and tampering by a malicious client, it is encrypted with the long-term key of the application server. Since only the application server and the authentication server know this key, an attacker cannot decrypt this message to alter the contents or steal the session key. In Kerberos terminology, this encrypted message is also known as a ticket. </p>
+
+<p>The message is wrapped inside of another message, this one intended for the client. The client message also includes the name of the application server, a copy of the session key, and a copy of the nonce originally sent in the first message. The whole message is then encrypted with the client&rsquo;s long-term key. Once all the information has been assembled and encrypted, the authentication server sends it to the client.</p>
+
+<h4 id="asn1">ASN.1</h4>
+
+<p>ASN.1 is an acronym for Abstract Syntax Notation One. It defines a methodology for describing protocol definitions in an abstract notation, and then provides several methods to convert those abstract definitions into a stream of bytes for transmission over a communications network.</p>
+
+<h3><a name="heimdal"></a>1.2.3&nbsp;Heimdal</h3>
+
+<p>Heimdal is an open source implementation of Kerberos 5. </p>
+
+<p>Here is a very useful video for a <a href="http://www.youtube.com/watch?v=b2BdTXb5nds">crash introduction to Heimdal</a></p>
+
+<p><a href="http://www.kerberos-walkthrough.de">Kerberos walktrough</a></p>
+
+<h2><a name="ldap"></a>1.3&nbsp;LDAP</h2>
+<p>LDAP stands for Lightweight Directory Access Protocol — it is not itself either hardware or software, but a protocol to define how a client and server interact with each other. An LDAP directory is used to describe a directory whose server corresponds to this protocol.</p>
+
+<h3><a name="openldap"></a>1.3.1&nbsp;OpenLDAP</h3>
+<p><a href="http://www.openldap.org/">openLdap website</a></p>
+
+<h2><a name="demo1"></a>1.4&nbsp;DEMO 1</h2>
+<p>Here it is shown the first <a href="demo1.html">demo sample</a> for deploying ssh kerberized.</p>
+
+<h2><a name="demo2"></a>1.5&nbsp;DEMO 2</h2>
+<p>Here it is shown the <a href="demo2.html">second demo sample</a> for securing an apache web application.</p>
+
+<h2><a name="integratingopenldapwithkerberosheimdal"></a>1.6&nbsp;Integrating OpenLDAP with Kerberos Heimdal</h2>
+
+<!--[guide 1](http://www.linux-mag.com/id/4738/?site=linuxonblades&sid=main)
+[guide 2](http://www.linux-mag.com/id/4765/)
+-->
+
+<h3><a name="setthevirtualmachines"></a>1.6.1&nbsp;Set the virtual machines</h3>
+<p>We copy the image from /lustre/rz/vpenso/images/debian64-6.0.4-chef-client-0.10.8.kvm.tgz into lxgrid5.gsi.de (this is just an example system).  </p>
+
+<p>Inside lxgrid5.gsi.de I have lxcm01.devops.gsi.de as Chef-server. All machines will have Chef-client and will connect to it. Actually, I have chosen to distribute an image with already a chef client on it to save time.  </p>
+
+<p>With each virtual machine, we will proceed this way (we are considering we already have defined the network bridge and we have assigned corresponding ip addresses).</p>
+
+<div class="highlight"><pre>amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>cp -r ../debian64-6.0.4-chef-client-0.10.8/keys/ .  
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>cp ../debian64-6.0.4-chef-client-0.10.8/disk.img  
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>virsh create ./libvirt_instance.xml  
+amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>vmname lxb001.devops.gsi.de  10.1.1.4  
+</pre></div>
+
+<h3><a name="installheimdal"></a>1.6.2&nbsp;Install Heimdal</h3>
+
+<p>This is a summary of a more extensive documentation in <a href="http://www.h5l.org">heimdal website</a>.</p>
+
+<p>We download the cookbook from <a href="http://gitorious.gsi.de/">gitorius</a>.  I have it already on my chef-server at lxcm01.devops.gsi.de.<br />
+We can check our cookbooks just by:  </p>
+
+<div class="highlight"><pre>devops@lxcm01:~<span class="nv">$ </span>knife cookbook list
+heimdal   0.0.1
+lazydns   0.2.0
+nis       0.1.2
+ntp       0.1.0
+resolv    1.0.0
+</pre></div>
+
+<p>To connect any machine (lxb001.devops.gsi.de in the example) to chef-server we have to configure the client to connect to the server. We indicate this inside /etc/chef/client.rb:  </p>
+
+<div class="highlight"><pre>devops@lxb001:/etc/chef<span class="nv">$ </span>cat client.rb 
+log_level        :info
+log_location     STDOUT
+chef_server_url  <span class="s1">&#39;http://lxcm01.devops.gsi.de:4000&#39;</span>
+validation_client_name <span class="s2">&quot;chef-validator&quot;</span>
+validation_key <span class="s2">&quot;/etc/chef/validation.pem&quot;</span>
+client_key <span class="s2">&quot;/etc/chef/client.pem&quot;</span>
+file_cache_path <span class="s2">&quot;/srv/chef/cache&quot;</span>
+pid_file <span class="s2">&quot;/var/run/chef/chef-client.pid&quot;</span>
+</pre></div>
+
+<p>Now we copy the validation.pem certificate into the right place. Previosly I have copied this certificate outside the chef-server, in the directory that contains the vm. </p>
+
+<div class="highlight"><pre> amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>cp ../lxcm01.devops.gsi.de/validation.pem .
+ amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>vmput validation.pem /tmp/
+ Warning: Permanently added <span class="s1">&#39;10.1.1.4&#39;</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts.
+ validation.pem                                                                                            100%      1675     1.6KB/s   00:00    
+ amontiel@lxgrid5:/srv/vms/lxb001.devops.gsi.de<span class="nv">$ </span>vmssh <span class="s1">&#39;sudo mv /tmp/validation.pem /etc/chef/&#39;</span>
+</pre></div>
+
+<p>Now if we restart the chef-client inside lxb001.devops.gsi.de, it should connect directly to the chef-server. </p>
+
+<div class="highlight"><pre>devops@lxb001:/etc/chef<span class="nv">$ </span>sudo /etc/init.d/chef-client restart
+Restarting chef-client: chef-client.
+devops@lxb001:/etc/chef<span class="nv">$ </span>tail -f /var/log/chef/client.log 
+<span class="o">[</span>Thu, 10 May 2012 16:21:36 +0200<span class="o">]</span> INFO: *** Chef 0.10.8 ***
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Client key /etc/chef/client.pem is not present - registering
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: HTTP Request Returned 404 Not Found: Cannot load node lxb001.devops.gsi.de
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Run List is <span class="o">[]</span>
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Run List expands to <span class="o">[]</span>
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Starting Chef Run <span class="k">for </span>lxb001.devops.gsi.de
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Running start handlers
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Start handlers complete.
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Loading cookbooks <span class="o">[]</span>
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> WARN: Node lxb001.devops.gsi.de has an empty run list.
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Chef Run <span class="nb">complete </span>in 0.159305 seconds
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Running report handlers
+<span class="o">[</span>Thu, 10 May 2012 16:21:37 +0200<span class="o">]</span> INFO: Report handlers <span class="nb">complete</span>
+</pre></div>
+
+<p>We want to run Heimdal <strong>server</strong>, so we edit the attributes of the node we just created according to our needs. It should look something like this: </p>
+
+<div class="highlight"><pre><span class="o">{</span>
+<span class="s2">&quot;normal&quot;</span>: <span class="o">{</span>
+<span class="s2">&quot;tags&quot;</span>: <span class="o">[</span>
+<span class="o">]</span>,
+<span class="s2">&quot;krb5&quot;</span>: <span class="o">{</span>
+  <span class="s2">&quot;adm_server&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>,
+  <span class="s2">&quot;realm_name&quot;</span>: <span class="s2">&quot;DEVOPS.GSI.DE&quot;</span>,
+  <span class="s2">&quot;kdc&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>
+<span class="o">}</span>
+<span class="o">}</span>,
+<span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>,
+<span class="s2">&quot;chef_environment&quot;</span>: <span class="s2">&quot;_default&quot;</span>,
+<span class="s2">&quot;run_list&quot;</span>: <span class="o">[</span>
+<span class="s2">&quot;recipe[heimdal::server]&quot;</span>,
+ <span class="s2">&quot;recipe[ntp]&quot;</span>
+ <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>With this recipe we have installed the necessary packages, created the initial database and defined the initial ACLs.  </p>
+
+<p>We check everything is there the way we want: </p>
+
+<ul>
+  <li>The configuration file for our realm: /etc/krb5.conf</li>
+</ul>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# cat /etc/krb5.conf
+<span class="o">[</span>libdefaults<span class="o">]</span>  
+</pre></div>
+
+<pre><code>ticket_lifetime		= 28800
+dns_lookup_realm 	= false
+dns_lookup_kdc 		= false
+fcc-mit-ticketflags 	= true
+    forwardable = TRUE
+[realms]
+
+DEVOPS.GSI.DE = {
+ 	kdc 		     = lxb001.devops.gsi.de
+	admin_server 	     = lxb001.devops.gsi.de
+	default_domain 	     = devops.gsi.de
+}
+
+[domain_realm]
+
+devops.gsi.de = DEVOPS.GSI.DE
+
+[logging]
+default = FILE:/var/log/heimdal/default.log
+</code></pre>
+
+<p><strong>To make forwardable tickets we set the option [libdefaults] forwardable = TRUE</strong> also in the clients.</p>
+
+<ul>
+  <li>The file where the master key of the whole database is created: </li>
+</ul>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# ls -la  /var/lib/heimdal-kdc/m-key
+-rw------- 1 root root 74 May 10 16:54 /var/lib/heimdal-kdc/m-key
+</pre></div>
+
+<ul>
+  <li>The configuration file for the Key Distribution Center (KDC) server</li>
+</ul>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# cat /etc/heimdal-kdc/kdc.conf 
+<span class="o">[</span>kdc<span class="o">]</span>
+</pre></div>
+
+<pre><code>dbname = /var/lib/heimdal-kdc/devops.gsi.de
+realm =  DEVOPS.GSI.DE
+acl_file = /etc/heimdal-kdc/kadm5.acl
+key_stash_file = /etc/heimdal-kdc/stash
+ 	max_life = 24h 0m 0s
+max_renewable_life = 7d 0h 0m 0s
+master_key_type = des3-cbc-sha1
+supported_enctypes = des3-hmac-sha1:normal des-cbc-crc:normal des3-cbc-sha1:normal aes256-cts-hmac-sha1-96 
+   default_principal_flags = +preauth
+
+}
+
+[logging]
+
+kadmind		= FILE:/var/log/heimdal/kadmin.log
+kpasswdd	= FILE:/var/log/heimdal/kpasswdd.log
+default		= FILE:/var/log/heimdal/heimdal.log
+
+# detach = boolean
+
+# Gives an upper limit on the size of the requests that the kdc is
+# willing to handle.
+# max-request =  integer
+
+# Turn off the requirement for pre-autentication in the initial AS-
+# REQ for all principals.  The use of pre-authentication makes it
+# more difficult to do offline password attacks.  You might want to
+# turn it off if you have clients that don't support pre-authenti-
+# cation.  Since the version 4 protocol doesn't support any pre-
+# authentication, serving version 4 clients is just about the same
+# as not requiring pre-athentication.  The default is to require
+# pre-authentication.  Adding the require-preauth per principal is
+# a more flexible way of handling this.
+# require-preauth = boolean
+
+# Specifies the set of ports the KDC should listen on.  It is given
+# as a white-space separated list of services or port numbers.
+# ports = 88,750
+
+# The list of addresses to listen for requests on.  By default, the
+# kdc will listen on all the locally configured addresses.  If only
+# a subset is desired, or the automatic detection fails, this
+# option might be used.
+# addresses = list of ip addresses
+
+# respond to Kerberos 4 requests
+# enable-kerberos4 = false
+
+# respond to Kerberos 4 requests from foreign realms.  This is a
+# known security hole and should not be enabled unless you under-
+# stand the consequences and are willing to live with them.
+# enable-kerberos4-cross-realm = false
+
+# respond to 524 requests
+# enable-524 = value of enable-kerberos4
+    
+# Makes the kdc listen on port 80 and handle requests encapsulated
+# in HTTP.
+# enable-http = boolean
+
+# What realm this server should act as when dealing with version 4
+# requests.  The database can contain any number of realms, but
+# since the version 4 protocol doesn't contain a realm for the
+# server, it must be explicitly specified.  The default is whatever
+# is returned by krb_get_lrealm().  This option is only availabe if
+# the KDC has been compiled with version 4 support.
+# v4-realm = string
+
+# Enable kaserver emulation (in case it's compiled in).
+# enable-kaserver = false
+</code></pre>
+
+<ul>
+  <li>And also, we check the processes running: </li>
+</ul>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# ps -fea | grep heim
+root     13456     1  0 10:34 ?        00:00:00 /usr/lib/heimdal-servers/kdc --    config-file<span class="o">=</span>/etc/heimdal-kdc/kdc.conf
+root     13457     1  0 10:34 ?        00:00:00 /usr/lib/heimdal-servers/    kpasswdd
+root@lxb001:/home/devops# tail -4 /etc/inetd.conf 
+<span class="c">#:OTHER: Other services</span>
+        
+kerberos-adm	stream	tcp	nowait	root	/usr/sbin/tcpd /usr/lib/heimdal-servers/kadmind
+<span class="c">#krb_prop	stream	tcp	nowait	root	/usr/sbin/tcpd /usr/sbin/hpropd</span>
+</pre></div>
+
+<ul>
+  <li>We can check locally the database: </li>
+</ul>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# kadmin -l
+kadmin&gt; list *
+default
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+</pre></div>
+
+<ul>
+  <li>We change the password for the kadmin/admin user. All modifications of principals are done with with kadmin. A principal has several attributes and lifetimes associated with it. We create a user principal for starting: </li>
+</ul>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# kadmin -l
+kadmin&gt; cpw kadmin/admin
+kadmin/admin@DEVOPS.GSI.DE<span class="s1">&#39;s Password: </span>
+<span class="s1">Verifying - kadmin/admin@DEVOPS.GSI.DE&#39;</span>s Password: 
+kadmin&gt; add almudena
+Max ticket life <span class="o">[</span>1 day<span class="o">]</span>:
+Max renewable life <span class="o">[</span>1 week<span class="o">]</span>:
+Principal expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Password expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Attributes <span class="o">[]</span>:
+almudena@DEVOPS.GSI.DE<span class="s1">&#39;s Password: </span>
+<span class="s1">Verifying - almudena@DEVOPS.GSI.DE&#39;</span>s Password: 
+kadmin&gt; list *
+default
+almudena
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+kadmin&gt; list -l almudena
+        Principal: almudena@DEVOPS.GSI.DE
+Principal expires: never
+ Password expires: never
+ Last password change: 2012-05-11 09:52:26 UTC
+  Max ticket life: 1 day
+   Max renewable life: 1 week
+             Kvno: 1
+            Mkvno: unknown
+Last successful login: never
+Last failed login: never
+   Failed login count: 0
+    Last modified: 2012-05-11 09:52:26 UTC
+         Modifier: kadmin/admin@DEVOPS.GSI.DE
+       Attributes: 
+         Keytypes: aes256-cts-hmac-sha1-96<span class="o">(</span>pw-salt<span class="o">)</span>, des3-cbc-sha1<span class="o">(</span>pw-salt<span class="o">)</span>, arcfour-hmac-md5<span class="o">(</span>pw-salt<span class="o">)</span>
+      PK-INIT ACL: 
+          Aliases: 
+</pre></div>
+
+<ul>
+  <li>We will allow the user kadmin/admin to access remotely. We set this in the acl: </li>
+</ul>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# cat /etc/heimdal-kdc/kadmind.acl 
+<span class="c">#principal       [priv1,priv2,...]       [glob-pattern]</span>
+kadmin/admin	all
+root@lxb001:/home/devops# /etc/init.d/heimdal-kdc restart
+Stopping Heimdal password server: kpasswdd.
+Stopping Heimdal KDC: heimdal-kdc.
+Starting Heimdal KDC: heimdal-kdc.
+Starting Heimdal password server: kpasswdd.  
+</pre></div>
+
+<p>For the <strong>clients</strong>, we change the recipe to be executed to heimdal::client, like this:</p>
+
+<div class="highlight"><pre><span class="o">{</span>
+ <span class="s2">&quot;normal&quot;</span>: <span class="o">{</span>
+ <span class="s2">&quot;tags&quot;</span>: <span class="o">[</span>
+<span class="o">]</span>,
+<span class="s2">&quot;krb5&quot;</span>: <span class="o">{</span>
+   <span class="s2">&quot;adm_server&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>,
+   <span class="s2">&quot;realm_name&quot;</span>: <span class="s2">&quot;DEVOPS.GSI.DE&quot;</span>,
+   <span class="s2">&quot;kdc&quot;</span>: <span class="s2">&quot;lxb001.devops.gsi.de&quot;</span>
+ <span class="o">}</span>
+<span class="o">}</span>,
+ <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;lxb002.devops.gsi.de&quot;</span>,
+ <span class="s2">&quot;chef_environment&quot;</span>: <span class="s2">&quot;_default&quot;</span>,
+ <span class="s2">&quot;run_list&quot;</span>: <span class="o">[</span>
+ <span class="s2">&quot;recipe[heimdal::client]&quot;</span>,
+ <span class="s2">&quot;recipe[ntp]&quot;</span>
+ <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>We check that everything is there in the way we want: </p>
+
+<ul>
+  <li>The configuration file is the same as in the server: /etc/krb5.conf</li>
+  <li>The processes running.</li>
+</ul>
+
+<p>Because we added before in the ACL the access to the admin user, then we should be able to access through it. 
+We need to create a principal for the ssh server.</p>
+
+<div class="highlight"><pre>devops@lxb002:/etc<span class="nv">$ </span>/usr/sbin/kadmin -p kadmin/admin
+kadmin&gt; list *
+kadmin/admin@DEVOPS.GSI.DE<span class="err">&#39;</span>s Password: 
+default
+almudena
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+kadmin&gt; add --random-key host/lxb002.devops.gsi.de
+Max ticket life <span class="o">[</span>1 day<span class="o">]</span>:
+Max renewable life <span class="o">[</span>1 week<span class="o">]</span>:
+Principal expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Password expiration <span class="nb">time</span> <span class="o">[</span>never<span class="o">]</span>:
+Attributes <span class="o">[]</span>:
+kadmin&gt; list *
+default
+almudena
+kadmin/admin
+kadmin/hprop
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+host/lxb002.devops.gsi.de
+kadmin&gt; ext_keytab --keytab<span class="o">=</span>/tmp/keytab host/lxb002.devops.gsi.de
+kadmin&gt; <span class="nb">exit</span>
+</pre></div>
+
+<pre><code>devops@lxb002:~$sudo mv /tmp/keytab /etc/krb5.keytab
+</code></pre>
+
+<p>Our sample client will be a ssh server.<br />
+We modify the configuration of our ssh server to accept API authentication:</p>
+
+<div class="highlight"><pre>root@lxb002:/etc# <span class="nb">echo</span> <span class="s2">&quot;GSSAPIAuthentication yes&quot;</span> &gt;&gt; /etc/ssh/sshd_config
+root@lxb002:/etc# <span class="nb">echo</span> <span class="s2">&quot;KerberosAuthentication yes&quot;</span> &gt;&gt;/etc/ssh/sshd_config
+root@lxb002:/etc# /etc/init.d/ssh restart
+root@lxb002:/etc# useradd -m -s /bin/bash almudena <span class="c"># we dont set a password, we will use kerberos</span>
+</pre></div>
+
+<p>Now we install a third machine, with heimdal::client too. This will be the ssh client testing the ssh-server kerberized with the account almudena.</p>
+
+<ul>
+  <li>We create again here an account with no password:</li>
+</ul>
+
+<div class="highlight"><pre>root@lxb003:/home/devops# useradd -m -s /bin/bash almudena
+devops@lxb003:~<span class="nv">$ </span>su - almudena
+Password: 
+almudena@lxb003:~<span class="nv">$ </span>klist
+Credentials cache: FILE:/tmp/krb5cc_1001_EI5sxs
+    Principal: almudena@DEVOPS.GSI.DE
+</pre></div>
+
+<p>Issued           Expires          Principal
+May 11 12:35:16  May 11 22:35:16  krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE</p>
+
+<p>This is what we see in the kdc log file: 
+2012-05-11T12:35:16 ENC-TS Pre-authentication succeeded &ndash; almudena@DEVOPS.GSI.DE using aes256-cts-hmac-sha1-96
+2012-05-11T12:35:16 AS-REQ authtime: 2012-05-11T12:35:16 starttime: unset endtime: 2012-05-11T22:35:16 renew till: unset
+2012-05-11T12:35:16 Client supported enctypes: aes256-cts-hmac-sha1-96, aes128-cts-hmac-sha1-96, des3-cbc-sha1, des3-cbc-md5, arcfour-hmac-md5, using aes256-cts-hmac-sha1-96/aes256-cts-hmac-sha1-96
+2012-05-11T12:35:16 Requested flags: proxiable, forwardable
+2012-05-11T12:35:16 sending 667 bytes to IPv4:10.1.1.6</p>
+
+<p>We attempt now to connect to the ssh server, this is the kdc output</p>
+
+<p>2012-05-11T12:38:29 AS-REQ almudena@DEVOPS.GSI.DE from IPv4:10.1.1.5 for krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE
+2012-05-11T12:38:29 No preauth found, returning PREAUTH-REQUIRED &ndash; almudena@DEVOPS.GSI.DE
+2012-05-11T12:38:29 sending 279 bytes to IPv4:10.1.1.5
+2012-05-11T12:38:29 AS-REQ almudena@DEVOPS.GSI.DE from IPv4:10.1.1.5 for krbtgt/DEVOPS.GSI.DE@DEVOPS.GSI.DE
+2012-05-11T12:38:29 Client sent patypes: encrypted-timestamp
+2012-05-11T12:38:29 Looking for PKINIT pa-data &ndash; almudena@DEVOPS.GSI.DE
+2012-05-11T12:38:29 Looking for ENC-TS pa-data &ndash; almudena@DEVOPS.GSI.DE
+2012-05-11T12:38:29 ENC-TS Pre-authentication succeeded &ndash; almudena@DEVOPS.GSI.DE using aes256-cts-hmac-sha1-96
+2012-05-11T12:38:29 AS-REQ authtime: 2012-05-11T12:38:29 starttime: unset endtime: 2012-05-11T22:38:29 renew till: unset
+2012-05-11T12:38:29 Client supported enctypes: aes256-cts-hmac-sha1-96, aes128-cts-hmac-sha1-96, des3-cbc-sha1, des3-cbc-md5, arcfour-hmac-md5, using aes256-cts-hmac-sha1-96/aes256-cts-hmac-sha1-96
+2012-05-11T12:38:29 Requested flags: proxiable, forwardable
+2012-05-11T12:38:29 sending 667 bytes to IPv4:10.1.1.5
+2012-05-11T12:38:29 TGS-REQ almudena@DEVOPS.GSI.DE from IPv4:10.1.1.5 for host/lxb002.devops.gsi.de@DEVOPS.GSI.DE [canonicalize]
+2012-05-11T12:38:29 TGS-REQ authtime: 2012-05-11T12:38:29 starttime: 2012-05-11T12:38:29 endtime: 2012-05-11T22:38:29 renew till: unset
+2012-05-11T12:38:29 sending 676 bytes to IPv4:10.1.1.5</p>
+
+<p>When we disconnect and try to connect again, we should not be asked for the password again, sso.</p>
+
+<p>tail /var/log/auth.log</p>
+  </div>
+</div>
+</body>
+</html>
+

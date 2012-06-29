@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+
+    /* RESET ALL ELEMENTS  */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, font, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, 
+    form, label, legend, table, caption, tbody, tfoot, 
+    thead, tr, th, td {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+    }
+
+    body { 
+      color: black; 
+      background-color: white;
+      line-height: 1.2em; 
+      max-width: 600px;
+      margin-right: auto; 
+      margin-left: auto; 
+      overflow: visible;
+    }
+
+    /* center the content in the middle of the browser */
+    #display { 
+      height: 100%; 
+      padding: 0;
+      font-family: Georgia, FreeSans, Arial, Helvetica, sans-serif;
+      font-size: 1em;
+      margin-bottom: 2em;
+    }
+
+    /* GENERAL DEFAULTS */
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show; 
+      text-align: center; 
+      font-size: 1em;
+      font-weight: normal;
+      margin-right: auto; 
+      margin-left: auto;
+      margin-top: 1em;
+    }
+    td { 
+      padding-top: 0.15em; 
+      padding-bottom: 0.15em;
+      padding-left: 0.25em; 
+      padding-right: 0.25em;
+      border-bottom: 0.1em solid lightgray;
+      border-collapse: collapse; 
+    }
+    th {
+      padding-top: 0.15em; 
+      padding-bottom: 0.15em;
+      padding-left: 0.5em; 
+      padding-right: 0.5em; 
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 0.3em double lightgray; 
+    }
+
+
+    ol, ul { list-style: none; }
+
+    /* CONTENT AREA  */
+
+    #content p, h1, h2, h3, h4, h5, h6, pre  { 
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    #content p {
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
+    }
+    #content h1 { 
+      font-size: 2.4em;
+      padding-top: 1em;
+      padding-bottom: 0.4em;
+      line-height: 1.2em;
+    }
+    #content h2 { 
+      font-size: 2em;
+      line-height: 1.2em;
+      padding-top: 0.6em; 
+      padding-bottom: 0.4em;
+    }
+    #content h3 { 
+      font-size: 1.8em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+    }
+    #content h4 { 
+      font-size: 1.5em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+      text-decoration: underline;
+    }
+    #content h5 { 
+      font-size: 1.1em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+    }
+    #content ul { 
+      list-style-type: circle;
+      list-style-image: none;
+      list-style-position: outside;
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+    #content ol {
+      list-style-type: decimal;
+      list-style-image: none;
+      list-style-position: outside;
+      margin-left: 3em;
+      margin-right: 2em;
+    }
+    #content img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+      width: auto;
+      display: inline;
+      max-width: 35em;
+    }
+    #content code {
+      font-family: "Courier New", monospace; 
+      font-weight: normal;
+      color: black;
+      background: whitesmoke;
+      font-size: 0.8em;
+    }
+    #content pre {
+      line-height: normal;
+      padding: 0.2em 0.4em 0.2em 0.4em;
+      overflow: hidden; 
+      border: 1px solid whitesmoke;
+      margin: 0.4em;
+      overflow: auto;
+    }
+    #content pre code {
+      font-family: Courier, Verdana, Monaco;
+      margin: 0;
+      padding: 0;
+      color: black;
+      background-color: white;
+      font-size: 1em;
+    }
+    #content a { 
+      color: blue;
+      text-decoration: none; 
+    }
+    #content a:visited { 
+      color: blue; 
+    }
+    #content a:hover {
+      color: lightskyblue;
+      text-decoration: underline; 
+    }
+    #content a:target { 
+      color: blue; 
+    }
+    #content blockquote {
+      padding-left: 1em;
+      padding-right: 4em;
+      font-style: italic;
+    }
+    #content sup {
+      font-size: 0.6em; 
+      vertical-align: top;
+    }
+    #content sub {
+      font-size: 0.6em; 
+      vertical-align: bottom;
+    } 
+
+    /* table of content  */
+    .toc {
+      margin-bottom: 1em;
+      background-color: #F8F8FF;
+      padding:  0.5em;
+    }
+    .toc ul {
+      list-style-type: none;
+      padding-left: 1em; 
+    }
+    .toc li {
+      padding: 0;
+      margin: 0; 
+    }
+    
+    #content .toc a { 
+      color: blue;
+      text-decoration: none; 
+    }
+
+    /* syntax high-lighting for Pygments*/
+    .hll { background-color: #ffffcc }
+    .c { color: #808080 } /* Comment */
+    .err { color: #F00000; background-color: #F0A0A0 } /* Error */
+    .k { color: #008000; font-weight: bold } /* Keyword */
+    .o { color: #303030 } /* Operator */
+    .cm { color: #808080 } /* Comment.Multiline */
+    .cp { color: #507090 } /* Comment.Preproc */
+    .c1 { color: #808080 } /* Comment.Single */
+    .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
+    .gd { color: #A00000 } /* Generic.Deleted */
+    .ge { font-style: italic } /* Generic.Emph */
+    .gr { color: #FF0000 } /* Generic.Error */
+    .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+    .gi { color: #00A000 } /* Generic.Inserted */
+    .go { color: #808080 } /* Generic.Output */
+    .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+    .gs { font-weight: bold } /* Generic.Strong */
+    .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+    .gt { color: #0040D0 } /* Generic.Traceback */
+    .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+    .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+    .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+    .kp { color: #003080; font-weight: bold } /* Keyword.Pseudo */
+    .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+    .kt { color: #303090; font-weight: bold } /* Keyword.Type */
+    .m { color: #6000E0; font-weight: bold } /* Literal.Number */
+    .s { background-color: #fff0f0 } /* Literal.String */
+    .na { color: #0000C0 } /* Name.Attribute */
+    .nb { color: #007020 } /* Name.Builtin */
+    .nc { color: #B00060; font-weight: bold } /* Name.Class */
+    .no { color: #003060; font-weight: bold } /* Name.Constant */
+    .nd { color: #505050; font-weight: bold } /* Name.Decorator */
+    .ni { color: #800000; font-weight: bold } /* Name.Entity */
+    .ne { color: #F00000; font-weight: bold } /* Name.Exception */
+    .nf { color: #0060B0; font-weight: bold } /* Name.Function */
+    .nl { color: #907000; font-weight: bold } /* Name.Label */
+    .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+    .nt { color: #007000 } /* Name.Tag */
+    .nv { color: #906030 } /* Name.Variable */
+    .ow { color: #000000; font-weight: bold } /* Operator.Word */
+    .w { color: #bbbbbb } /* Text.Whitespace */
+    .mf { color: #6000E0; font-weight: bold } /* Literal.Number.Float */
+    .mh { color: #005080; font-weight: bold } /* Literal.Number.Hex */
+    .mi { color: #0000D0; font-weight: bold } /* Literal.Number.Integer */
+    .mo { color: #4000E0; font-weight: bold } /* Literal.Number.Oct */
+    .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
+    .sc { color: #0040D0 } /* Literal.String.Char */
+    .sd { color: #D04020 } /* Literal.String.Doc */
+    .s2 { background-color: #fff0f0 } /* Literal.String.Double */
+    .se { color: #606060; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
+    .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
+    .si { background-color: #e0e0e0 } /* Literal.String.Interpol */
+    .sx { color: #D02000; background-color: #fff0f0 } /* Literal.String.Other */
+    .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
+    .s1 { background-color: #fff0f0 } /* Literal.String.Single */
+    .ss { color: #A06000 } /* Literal.String.Symbol */
+    .bp { color: #007020 } /* Name.Builtin.Pseudo */
+    .vc { color: #306090 } /* Name.Variable.Class */
+    .vg { color: #d07000; font-weight: bold } /* Name.Variable.Global */
+    .vi { color: #3030B0 } /* Name.Variable.Instance */
+    .il { color: #0000D0; font-weight: bold } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<div id="display">
+  <div id="content">
+    <div class="toc">
+<a href="#chefserver">1&nbsp;Chef server</a><br/>
+&nbsp;&nbsp;<a href="#provisioningofthevm">1.1&nbsp;Provisioning of the VM</a><br/>
+&nbsp;&nbsp;<a href="#installachefserver">1.2&nbsp;Install a Chef server</a><br/>
+</div>
+
+
+<p>In order to create a testing infrastructure the best is to use some configuration management that allows automatization. It is necessary to be able to create-destroy-recreate any infrastructure. This is also a requirement policy on the Configuration Management phylosophy at GSI. Chef will be used. </p>
+
+<p>In this case, I deploy an independent network only visible inside the machine lxgrid5, because so far it is not as relevant work as to make it accessible. I will follow the chef-server model, one node will be a workstation running chef-server. The other nodes will run a chef client and will be configured from the server.</p>
+
+<p>All the virtual machines (VMs) will run under a NATed subnetwork. This is the current configuration:</p>
+
+<div class="highlight"><pre>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ virsh net-dumpxml nat_bridge
+<span class="nt">&lt;network&gt;</span>
+  <span class="nt">&lt;name&gt;</span>nat_bridge<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;uuid&gt;</span>40aa03bf-ba9a-e5e1-5566-8f8ecab56d5b<span class="nt">&lt;/uuid&gt;</span>
+  <span class="nt">&lt;forward</span> <span class="na">mode=</span><span class="s">&#39;nat&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;bridge</span> <span class="na">name=</span><span class="s">&#39;nbr0&#39;</span> <span class="na">stp=</span><span class="s">&#39;on&#39;</span> <span class="na">delay=</span><span class="s">&#39;0&#39;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;domain</span> <span class="na">name=</span><span class="s">&#39;devops.test&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;ip</span> <span class="na">address=</span><span class="s">&#39;10.1.1.1&#39;</span> <span class="na">netmask=</span><span class="s">&#39;255.255.255.0&#39;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dhcp&gt;</span>
+      <span class="nt">&lt;range</span> <span class="na">start=</span><span class="s">&#39;10.1.1.20&#39;</span> <span class="na">end=</span><span class="s">&#39;10.1.1.254&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:02&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdns01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.2&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:03&#39;</span> <span class="na">name=</span><span class="s">&#39;lxcm01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.3&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:04&#39;</span> <span class="na">name=</span><span class="s">&#39;lxrm01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.4&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:05&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb001.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.5&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:06&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb002.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.6&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:07&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb003.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.7&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:08&#39;</span> <span class="na">name=</span><span class="s">&#39;lxb004.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.8&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:09&#39;</span> <span class="na">name=</span><span class="s">&#39;lxmon01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.9&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0A&#39;</span> <span class="na">name=</span><span class="s">&#39;lxfs01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.10&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0B&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdev01.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.11&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0C&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdev02.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.12&#39;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;host</span> <span class="na">mac=</span><span class="s">&#39;02:FF:0A:0A:06:0D&#39;</span> <span class="na">name=</span><span class="s">&#39;lxdev03.devops.test&#39;</span> <span class="na">ip=</span><span class="s">&#39;10.1.1.13&#39;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/dhcp&gt;</span>
+  <span class="nt">&lt;/ip&gt;</span>
+<span class="nt">&lt;/network&gt;</span>
+</pre></div>
+
+<p>The DNS will be installed/configured by using chef-solo, because we will need it before we have the configuration management server. The recipe used will be <a href="http://gitorious.gsi.de/site-cookbooks/lazydns">lazyDNS</a> <strong><em>NOTE</em></strong> WE DO NOT REALLY NEED DNS. Just with the configuration of /etc/resolv.conf and DHCP in each machine it should be enough for basic name resolution.</p>
+
+<p>There will be a VM that will run the configuration management (CM), namely, the chef server. The others will have the chef client installed. The recipes on the CM VM will be in sync with the recipies on the physical host lxgrid5.gsi.de, where the kvm hypervisor is.
+Following <a href="http://gitorious.gsi.de/vpenso/kvm_helpers">Victor&rsquo;s guide</a> the following virtual machines are created.</p>
+
+<h1><a name="chefserver"></a>1&nbsp;Chef server</h1>
+<p>These are the steps to follow: 
+ - Provisioning of the VM
+ - Install a Chef Server
+ - Configure your local workstation
+ - Install chef-client on your nodes</p>
+
+<h2><a name="provisioningofthevm"></a>1.1&nbsp;Provisioning of the VM</h2>
+<p>We will copy the image from Lustre. And we will edit some stuff.</p>
+
+<p>Copy and untar the image:</p>
+
+<div class="highlight"><pre>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test<span class="nv">$ </span>scp lx-pool:/lustre/rz/vpenso/images/debian64-6.0.0-chef-server-0.9.14.kvm.tgz .
+amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test<span class="nv">$ </span>tar -xvf ./debian64-6.0.0-chef-server-0.9.14.kvm.tgz
+</pre></div>
+
+<p>Edit the file: libvirt_instance.xml accordingly: </p>
+
+<div class="highlight"><pre>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test$ cat libvirt_instance.xml 
+<span class="nt">&lt;domain</span> <span class="na">type=</span><span class="s">&#39;kvm&#39;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;name&gt;</span>lxcm01.devops.test<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;memory&gt;</span>524288<span class="nt">&lt;/memory&gt;</span>
+  <span class="nt">&lt;vcpu&gt;</span>1<span class="nt">&lt;/vcpu&gt;</span>
+  <span class="nt">&lt;os&gt;</span>
+    <span class="nt">&lt;type</span> <span class="na">arch=</span><span class="s">&quot;x86_64&quot;</span><span class="nt">&gt;</span>hvm<span class="nt">&lt;/type&gt;</span>
+  <span class="nt">&lt;/os&gt;</span>
+  <span class="nt">&lt;clock</span> <span class="na">sync=</span><span class="s">&quot;localtime&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;devices&gt;</span>
+    <span class="nt">&lt;emulator&gt;</span>/usr/bin/kvm<span class="nt">&lt;/emulator&gt;</span>
+    <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">&#39;file&#39;</span> <span class="na">device=</span><span class="s">&#39;disk&#39;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">file=</span><span class="s">&#39;/home/amontiel/srv/vms/instances/lxcm01.devops.test/disk.img&#39;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">&#39;hda&#39;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">&#39;qemu&#39;</span> <span class="na">type=</span><span class="s">&#39;qcow2&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/disk&gt;</span>
+    <span class="nt">&lt;interface</span> <span class="na">type=</span><span class="s">&#39;bridge&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">bridge=</span><span class="s">&#39;nbr0&#39;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;mac</span> <span class="na">address=</span><span class="s">&#39;02:FF:0A:0A:06:03&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/interface&gt;</span>
+  <span class="nt">&lt;/devices&gt;</span>
+  <span class="nt">&lt;on_poweroff&gt;</span>destroy<span class="nt">&lt;/on_poweroff&gt;</span>
+  <span class="nt">&lt;on_reboot&gt;</span>restart<span class="nt">&lt;/on_reboot&gt;</span>
+  <span class="nt">&lt;on_crash&gt;</span>restart<span class="nt">&lt;/on_crash&gt;</span>
+  <span class="nt">&lt;features&gt;</span>
+    <span class="nt">&lt;acpi/&gt;</span>
+  <span class="nt">&lt;/features&gt;</span>
+<span class="nt">&lt;/domain&gt;</span>
+</pre></div>
+
+<p>Create the virtual machine with libvirt.</p>
+
+<div class="highlight"><pre>amontiel@depc318:~/srv/vms/instances/lxcm01.devops.test<span class="nv">$ </span>virsh create libvirt_instance.xml
+</pre></div>
+
+<p>We need to change the hostname assigned initialy. We do this by editing <code>/etc/hosts</code> and also executing <code>sudo hostname lxcm01.devops.test</code>. </p>
+
+<h2><a name="installachefserver"></a>1.2&nbsp;Install a Chef server</h2>
+
+<p>Just follow the <a href="http://wiki.opscode.com/display/chef/Installing+Chef+Server">installation guide</a> from Chef.</p>
+
+<p>To be able to manage Chef server, we have to configure the workstation where it is running. We configure this workstation as it was a client of the Chef server itself.</p>
+
+<p>We copy the cookbooks from gitorious:</p>
+
+<div class="highlight"><pre>mkdir ~/chef
+<span class="nb">cd</span> ~/chef
+git clone http://gitorious.gsi.de/site-cookbooks
+</pre></div>
+
+<div class="highlight"><pre>mkdir -p ~/.chef
+sudo cp /etc/chef/validation.pem /etc/chef/webui.pem ~/.chef
+sudo chown -R <span class="nv">$USER</span> ~/.chef
+knife configure -i
+Where should I put the config file? <span class="o">[</span>~/.chef/knife.rb<span class="o">]</span>
+Please enter the chef server URL: <span class="o">[</span>http://localhost:4000<span class="o">]</span>
+Please enter a clientname <span class="k">for </span>the new client: <span class="o">[</span>devops<span class="o">]</span>
+Please enter the existing admin clientname: <span class="o">[</span>chef-webui<span class="o">]</span>
+Please enter the location of the existing admin client<span class="err">&#39;</span>s private key: <span class="o">[</span>/etc/chef/webui.pem<span class="o">]</span> .chef/webui.pem
+Please enter the validation clientname: <span class="o">[</span>chef-validator<span class="o">]</span>
+Please enter the location of the validation key: <span class="o">[</span>/etc/chef/validation.pem<span class="o">]</span> .chef/validation.pem
+</pre></div>
+
+<p>If we try to configure Chef-server for a client that is already existing, lets say we made a mistake and would like to redifine this user, the we face this problem (solved): http://tickets.opscode.com/browse/CHEF-2344</p>
+
+<p>We connect clients:</p>
+
+<p>For connecting nodes, which are both: a client and a node inside Chef server, we need to take the <em>validation</em> certificate into the client. We do the following: </p>
+
+<div class="highlight"><pre>amontiel@lxgrid5:/srv/vms/lxcm01.devops.gsi.de<span class="nv">$ </span>vmget /etc/chef/validation.pem .
+amontiel@lxgrid5:/srv/vms/lxcm01.devops.gsi.de<span class="nv">$ </span><span class="nb">cd</span> ../lxid01.devops.gsi.de/
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>cp ../lxcm01.devops.gsi.de/validation.pem .
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>vmput validation.pem /tmp/
+Warning: Permanently added <span class="s1">&#39;10.1.1.19&#39;</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts.
+validation.pem
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>vmput validation.pem /tmp/
+Warning: Permanently added <span class="s1">&#39;10.1.1.19&#39;</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts. validation.pem                                                                                                                     100% 1675     1.6KB/s   00:00    
+amontiel@lxgrid5:/srv/vms/lxid01.devops.gsi.de<span class="nv">$ </span>vmssh
+Linux lxid01 2.6.32-5-amd64 <span class="c">#1 SMP Thu Mar 22 17:26:33 UTC 2012 x86_64</span>
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms <span class="k">for </span>each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Fri Mar 30 14:44:30 2012 from 10.1.1.1
+devops@lxid01:~<span class="nv">$ </span>sudo -s
+root@lxid01:/home/devops# mv /tmp/validation.pem /etc/chef/validation.pem
+root@lxid01:/home/devops# /etc/init.d/chef-client restart
+Restarting chef-client: chef-client.
+</pre></div>
+  </div>
+</div>
+</body>
+</html>
+

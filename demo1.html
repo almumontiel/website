@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+
+    /* RESET ALL ELEMENTS  */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, font, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, 
+    form, label, legend, table, caption, tbody, tfoot, 
+    thead, tr, th, td {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+    }
+
+    body { 
+      color: black; 
+      background-color: white;
+      line-height: 1.2em; 
+      max-width: 600px;
+      margin-right: auto; 
+      margin-left: auto; 
+      overflow: visible;
+    }
+
+    /* center the content in the middle of the browser */
+    #display { 
+      height: 100%; 
+      padding: 0;
+      font-family: Georgia, FreeSans, Arial, Helvetica, sans-serif;
+      font-size: 1em;
+      margin-bottom: 2em;
+    }
+
+    /* GENERAL DEFAULTS */
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show; 
+      text-align: center; 
+      font-size: 1em;
+      font-weight: normal;
+      margin-right: auto; 
+      margin-left: auto;
+      margin-top: 1em;
+    }
+    td { 
+      padding-top: 0.15em; 
+      padding-bottom: 0.15em;
+      padding-left: 0.25em; 
+      padding-right: 0.25em;
+      border-bottom: 0.1em solid lightgray;
+      border-collapse: collapse; 
+    }
+    th {
+      padding-top: 0.15em; 
+      padding-bottom: 0.15em;
+      padding-left: 0.5em; 
+      padding-right: 0.5em; 
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 0.3em double lightgray; 
+    }
+
+
+    ol, ul { list-style: none; }
+
+    /* CONTENT AREA  */
+
+    #content p, h1, h2, h3, h4, h5, h6, pre  { 
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    #content p {
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
+    }
+    #content h1 { 
+      font-size: 2.4em;
+      padding-top: 1em;
+      padding-bottom: 0.4em;
+      line-height: 1.2em;
+    }
+    #content h2 { 
+      font-size: 2em;
+      line-height: 1.2em;
+      padding-top: 0.6em; 
+      padding-bottom: 0.4em;
+    }
+    #content h3 { 
+      font-size: 1.8em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+    }
+    #content h4 { 
+      font-size: 1.5em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+      text-decoration: underline;
+    }
+    #content h5 { 
+      font-size: 1.1em;
+      padding-top: 0.4em; 
+      padding-bottom: 0.2em;
+    }
+    #content ul { 
+      list-style-type: circle;
+      list-style-image: none;
+      list-style-position: outside;
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+    #content ol {
+      list-style-type: decimal;
+      list-style-image: none;
+      list-style-position: outside;
+      margin-left: 3em;
+      margin-right: 2em;
+    }
+    #content img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+      width: auto;
+      display: inline;
+      max-width: 35em;
+    }
+    #content code {
+      font-family: "Courier New", monospace; 
+      font-weight: normal;
+      color: black;
+      background: whitesmoke;
+      font-size: 0.8em;
+    }
+    #content pre {
+      line-height: normal;
+      padding: 0.2em 0.4em 0.2em 0.4em;
+      overflow: hidden; 
+      border: 1px solid whitesmoke;
+      margin: 0.4em;
+      overflow: auto;
+    }
+    #content pre code {
+      font-family: Courier, Verdana, Monaco;
+      margin: 0;
+      padding: 0;
+      color: black;
+      background-color: white;
+      font-size: 1em;
+    }
+    #content a { 
+      color: blue;
+      text-decoration: none; 
+    }
+    #content a:visited { 
+      color: blue; 
+    }
+    #content a:hover {
+      color: lightskyblue;
+      text-decoration: underline; 
+    }
+    #content a:target { 
+      color: blue; 
+    }
+    #content blockquote {
+      padding-left: 1em;
+      padding-right: 4em;
+      font-style: italic;
+    }
+    #content sup {
+      font-size: 0.6em; 
+      vertical-align: top;
+    }
+    #content sub {
+      font-size: 0.6em; 
+      vertical-align: bottom;
+    } 
+
+    /* table of content  */
+    .toc {
+      margin-bottom: 1em;
+      background-color: #F8F8FF;
+      padding:  0.5em;
+    }
+    .toc ul {
+      list-style-type: none;
+      padding-left: 1em; 
+    }
+    .toc li {
+      padding: 0;
+      margin: 0; 
+    }
+    
+    #content .toc a { 
+      color: blue;
+      text-decoration: none; 
+    }
+
+    /* syntax high-lighting for Pygments*/
+    .hll { background-color: #ffffcc }
+    .c { color: #808080 } /* Comment */
+    .err { color: #F00000; background-color: #F0A0A0 } /* Error */
+    .k { color: #008000; font-weight: bold } /* Keyword */
+    .o { color: #303030 } /* Operator */
+    .cm { color: #808080 } /* Comment.Multiline */
+    .cp { color: #507090 } /* Comment.Preproc */
+    .c1 { color: #808080 } /* Comment.Single */
+    .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
+    .gd { color: #A00000 } /* Generic.Deleted */
+    .ge { font-style: italic } /* Generic.Emph */
+    .gr { color: #FF0000 } /* Generic.Error */
+    .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+    .gi { color: #00A000 } /* Generic.Inserted */
+    .go { color: #808080 } /* Generic.Output */
+    .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+    .gs { font-weight: bold } /* Generic.Strong */
+    .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+    .gt { color: #0040D0 } /* Generic.Traceback */
+    .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+    .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+    .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+    .kp { color: #003080; font-weight: bold } /* Keyword.Pseudo */
+    .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+    .kt { color: #303090; font-weight: bold } /* Keyword.Type */
+    .m { color: #6000E0; font-weight: bold } /* Literal.Number */
+    .s { background-color: #fff0f0 } /* Literal.String */
+    .na { color: #0000C0 } /* Name.Attribute */
+    .nb { color: #007020 } /* Name.Builtin */
+    .nc { color: #B00060; font-weight: bold } /* Name.Class */
+    .no { color: #003060; font-weight: bold } /* Name.Constant */
+    .nd { color: #505050; font-weight: bold } /* Name.Decorator */
+    .ni { color: #800000; font-weight: bold } /* Name.Entity */
+    .ne { color: #F00000; font-weight: bold } /* Name.Exception */
+    .nf { color: #0060B0; font-weight: bold } /* Name.Function */
+    .nl { color: #907000; font-weight: bold } /* Name.Label */
+    .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+    .nt { color: #007000 } /* Name.Tag */
+    .nv { color: #906030 } /* Name.Variable */
+    .ow { color: #000000; font-weight: bold } /* Operator.Word */
+    .w { color: #bbbbbb } /* Text.Whitespace */
+    .mf { color: #6000E0; font-weight: bold } /* Literal.Number.Float */
+    .mh { color: #005080; font-weight: bold } /* Literal.Number.Hex */
+    .mi { color: #0000D0; font-weight: bold } /* Literal.Number.Integer */
+    .mo { color: #4000E0; font-weight: bold } /* Literal.Number.Oct */
+    .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
+    .sc { color: #0040D0 } /* Literal.String.Char */
+    .sd { color: #D04020 } /* Literal.String.Doc */
+    .s2 { background-color: #fff0f0 } /* Literal.String.Double */
+    .se { color: #606060; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
+    .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
+    .si { background-color: #e0e0e0 } /* Literal.String.Interpol */
+    .sx { color: #D02000; background-color: #fff0f0 } /* Literal.String.Other */
+    .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
+    .s1 { background-color: #fff0f0 } /* Literal.String.Single */
+    .ss { color: #A06000 } /* Literal.String.Symbol */
+    .bp { color: #007020 } /* Name.Builtin.Pseudo */
+    .vc { color: #306090 } /* Name.Variable.Class */
+    .vg { color: #d07000; font-weight: bold } /* Name.Variable.Global */
+    .vi { color: #3030B0 } /* Name.Variable.Instance */
+    .il { color: #0000D0; font-weight: bold } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<div id="display">
+  <div id="content">
+    <div class="toc">
+</div>
+
+<p>we would like to use Heimdal Kerberos on Debian for SSH. </p>
+
+<p>We need 3 machines:</p>
+
+<ol>
+  <li>master (lxid01.devops.gsi.de): runs the services kadmin and kdc.</li>
+  <li>sshserver (lxb001.devops.gsi.de): SSH server</li>
+  <li>sshclient (lxb003.devops.gsi.de): SSH client</li>
+</ol>
+
+<p>Requirements for all hosts:</p>
+
+<ul>
+  <li>Exact time. As minimum run ntpdate at startup, for example: </li>
+</ul>
+
+<div class="highlight"><pre>ntpdate -u 130.149.17.8
+</pre></div>
+
+<ul>
+  <li>DNS configuration: forward and reversal lookup is needed for all machines.</li>
+</ul>
+
+<div class="highlight"><pre>root@lxid01:/home/devops# ifconfig | grep 10.1.1
+inet addr:10.1.1.19  Bcast:10.1.1.255  Mask:255.255.255.0
+root@lxid01:/home/devops# host 10.1.1.19
+19.1.1.10.in-addr.arpa domain name pointer lxid01.devops.gsi.de.
+root@lxid01:/home/devops# host lxid01.devops.gsi.de
+lxid01.devops.gsi.de has address 10.1.1.19
+</pre></div>
+
+<ul>
+  <li>Hostname configuration: /etc/hostname and /etc/hosts has to match the DNS name.</li>
+</ul>
+
+<p>Now we get the recipe <em>heimdal</em> from gitorius.</p>
+
+<p>Configuration of the machines: </p>
+
+<div class="highlight"><pre>devops@lxcm01:~<span class="nv">$ </span>knife status -r 
+24 minutes ago, lxb003.devops.gsi.de, lxb003.devops.gsi.de, 10.1.1.6, , recipe<span class="o">[</span>heimdal::client<span class="o">]</span>., debian 6.0.2.
+22 minutes ago, lxcm01.devops.gsi.de, lxcm01.devops.gsi.de, 10.1.1.3, , ., debian 6.0.4.
+8 minutes ago, lxid01.devops.gsi.de, lxid01.devops.gsi.de, 10.1.1.19, , recipe<span class="o">[</span>heimdal::server<span class="o">]</span>, recipe<span class="o">[</span>ntp<span class="o">]</span>., debian 6.0.4.
+5 minutes ago, lxb001.devops.gsi.de, lxb001.devops.gsi.de, 10.1.1.4, , recipe<span class="o">[</span>heimdal::client<span class="o">]</span>., debian 6.0.4.
+1 minute  ago, lxdns01.devops.gsi.de, lxdns01.devops.gsi.de, 10.1.1.2, , recipe<span class="o">[</span>apt<span class="o">]</span>, recipe<span class="o">[</span>lazydns<span class="o">]</span>, recipe<span class="o">[</span>resolv<span class="o">]</span>, recipe<span class="o">[</span>ntp<span class="o">]</span>., debian 6.0.4
+</pre></div>
+
+<p>We have to edit the attributes according to our configuration. We could do it in several ways: defining roles, by json configuration files. We will edit the nodes accordingly. </p>
+
+<p>The server:</p>
+
+<div class="highlight"><pre>devops@lxcm01:~<span class="nv">$ </span>knife node edit lxid01.devops.gsi.de
+</pre></div>
+
+<pre><code>{
+  "normal": {
+    "tags": [
+
+    ],
+    "krb5": {
+      "adm_server": "lxid01.devops.gsi.de",
+      "realm_name": "DEVOPS.GSI.DE",
+      "kdc": "lxid01.devops.gsi.de"
+    }
+      },
+  "name": "lxid01.devops.gsi.de",
+  "chef_environment": "_default",
+  "run_list": [
+    "recipe[heimdal::server]",
+    "recipe[ntp]"
+  ]
+}
+</code></pre>
+
+<p>The clients (lxb001.devops.gsi.de, lxb003.devops.gsi.de)</p>
+
+<div class="highlight"><pre>devops@lxcm01:~<span class="nv">$ </span>knife node edit lxid01.devops.gsi.de
+</pre></div>
+
+<pre><code>{
+  "normal": {
+    "tags": [
+
+    ],
+    "krb5": {
+      "adm_server": "lxid01.devops.gsi.de",
+      "realm_name": "DEVOPS.GSI.DE",
+      "kdc": "lxid01.devops.gsi.de"
+    }
+  },
+  "name": "lxb001.devops.gsi.de",
+  "chef_environment": "_default",
+  "run_list": [
+    "recipe[heimdal::client]"
+  ]
+}
+</code></pre>
+
+<p>Inside the recipe the key for the database where all the principals and passwords will be saved is created, and saved in: /etc/heimdal-kdc/stash, with a random key.</p>
+
+<div class="highlight"><pre>root@lxid01:/home/devops# file /etc/heimdal-kdc/stash
+/etc/heimdal-kdc/stash: data
+</pre></div>
+
+<p>We can see all the kerberos processes running: </p>
+
+<div class="highlight"><pre>root@lxid01:/home/devops# ps -aux | grep heimdal
+root     11123  0.0  0.5  63084  3016 ?        S    17:09   0:00 /usr/lib/heimdal-servers/kdc --config-file<span class="o">=</span>/etc/heimdal-kdc/kdc.conf
+root     11124  0.0  0.5  60924  2872 ?        S    17:09   0:00 /usr/lib/heimdal-servers/kpasswdd
+root     11184  0.0  0.1   7548   836 pts/1    S+   17:29   0:00 grep heimdal
+root     24714  0.0  0.5  65272  2996 ?        S    Apr04   0:00 /usr/lib/heimdal-servers/kadmind
+</pre></div>
+
+<p>The process kadmind, also called kerberos-adm is started via inetd. Debians openbsd-inetd is already preconfigured.</p>
+
+<div class="highlight"><pre>root@lxid01:/home/devops# lsof -i :749
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+inetd   11154 root    7u  IPv4 239333      0t0  TCP *:kerberos-adm <span class="o">(</span>LISTEN<span class="o">)</span>
+kadmind 24714 root    3u  IPv6  73670      0t0  TCP *:kerberos-adm <span class="o">(</span>LISTEN<span class="o">)</span>
+</pre></div>
+
+<p>There are two important config files: /etc/default/heimdal-kdc and /etc/heimdal-kdc/kdc.conf. </p>
+
+<div class="highlight"><pre>root@lxid01:/home/devops# cat /etc/heimdal-kdc/kdc.conf 
+<span class="o">[</span>kdc<span class="o">]</span>
+	<span class="nv">database</span> <span class="o">=</span> <span class="o">{</span>
+</pre></div>
+
+<pre><code>    	realm =  DEVOPS.GSI.DE
+    	acl_file = /etc/heimdal-kdc/kadm5.acl
+		key_stash_file = /etc/heimdal-kdc/stash
+ 		max_life = 24h 0m 0s
+		max_renewable_life = 7d 0h 0m 0s
+
+    	supported_enctypes = des3-hmac-sha1:normal des-cbc-crc:normal des3-cbc-sha1:normal aes256-cts-hmac-sha1-96 
+       default_principal_flags = +preauth
+
+}
+
+[logging]
+	kdc		= FILE:/var/log/heimdal/kdc.log
+	kadmind		= FILE:/var/log/heimdal/kadmin.log
+	kpasswdd	= FILE:/var/log/heimdal/kpasswdd.log
+	default		= FILE:/var/log/heimdal/heimdal.log
+</code></pre>
+
+<p>The basic configuration is stored in /etc/krb5.conf. This file has to be the same on all three machines. This file is created during the execution of the recipe. Since we have set the attributes correctly we should have something similar to this:  </p>
+
+<div class="highlight"><pre>root@lxid01:/home/devops# cat /etc/krb5.conf 
+<span class="o">[</span>libdefaults<span class="o">]</span>
+	<span class="nv">default_realm</span>		<span class="o">=</span> DEVOPS.GSI.DE
+        <span class="nv">ticket_lifetime</span>		<span class="o">=</span> 28800
+	<span class="nv">dns_lookup_realm</span> 	<span class="o">=</span> <span class="nb">false</span>
+<span class="nb">	</span><span class="nv">dns_lookup_kdc</span> 		<span class="o">=</span> <span class="nb">false</span>
+<span class="nb">	</span>fcc-mit-ticketflags 	<span class="o">=</span> <span class="nb">true</span>
+</pre></div>
+
+<pre><code>m[realms]
+	DEVOPS.GSI.DE = {
+	 	kdc 		     = lxid01.devops.gsi.de
+		admin_server 	     = lxid01.devops.gsi.de
+		default_domain 	     = devops.gsi.de
+	}
+
+[domain_realm]
+	.devops.gsi.de = DEVOPS.GSI.DE
+	devops.gsi.de = DEVOPS.GSI.DE
+
+[logging]
+
+
+default = FILE:/var/log/heimdal/default.log
+</code></pre>
+
+<p>We will use the <em>kadmin</em> tool for configuration. We initialize the database:</p>
+
+<div class="highlight"><pre>root@lxid01:/home/devops# kadmin -l
+kadmin&gt; list *
+foo
+default
+amontiel
+kadmin/admin
+kadmin/hprop
+amontiel/admin
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+default@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+host/lxb001.devops.gsi.de
+kadmin/admin@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+kadmin/hprop@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+kadmin/changepw@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+changepw/kerberos@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+WELLKNOWN/ANONYMOUS@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+krbtgt/~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+</pre></div>
+
+<p>We change the password of the admin user with &lsquo;cpw kadmin/admin&rsquo;. Then, we create a test user with &lsquo;add foo&rsquo;.</p>
+
+<div class="highlight"><pre>kadmin&gt; list -l foo
+        Principal: foo@DEVOPS.GSI.DE
+Principal expires: never
+ Password expires: never
+</pre></div>
+
+<pre><code>  Max ticket life: 1 day
+
+             Kvno: 1
+            Mkvno: unknown
+
+Last failed login: never
+
+    Last modified: 2012-04-11 13:35:36 UTC
+         Modifier: amontiel/admin@DEVOPS.GSI.DE
+       Attributes: 
+         Keytypes: aes256-cts-hmac-sha1-96(pw-salt), des3-cbc-sha1(pw-salt), arcfour-hmac-md5(pw-salt)
+      PK-INIT ACL: 
+          Aliases: 
+</code></pre>
+
+<p>In the SSH server: </p>
+
+<p>we have installed a heimdal client, through the recipe indicated above. The configuration file <em>/etc/krb5.cnf</em> is already set.We are able to login with kadmin user from this machine, because we changed before the password in the Heimdal server. 
+We login with kadmin/admin and create a principal inside kerberos for the host, the ssh server:</p>
+
+<div class="highlight"><pre>root@lxb001:/home/devops# kadmin -p kadmin/admin
+kadmin&gt; list *
+kadmin/admin@DEVOPS.GSI.DE<span class="err">&#39;</span>s Password: 
+foo
+default
+amontiel
+kadmin/admin
+kadmin/hprop
+amontiel/admin
+kadmin/changepw
+changepw/kerberos
+WELLKNOWN/ANONYMOUS
+krbtgt/DEVOPS.GSI.DE
+default@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+host/lxb001.devops.gsi.de
+kadmin/admin@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+kadmin/hprop@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+kadmin/changepw@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+changepw/kerberos@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+WELLKNOWN/ANONYMOUS@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+krbtgt/~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m@~<span class="o">[</span>--realm-max-renewable-life<span class="o">=</span>10m
+kadmin&gt; add --random-key host/lxb001.devops.gsi.de
+</pre></div>
+
+<p>The following configuration line is enough to activate Kerberos authN in SSHd: </p>
+
+<p><em>echo &ldquo;GSSAPIAuthentication yes&rdquo;&nbsp;&raquo; /etc/ssh/sshd_config</em></p>
+  </div>
+</div>
+</body>
+</html>
+

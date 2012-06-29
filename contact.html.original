@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>SindromK Free css template</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div id="main_container">
+	<div id="header">
+    	<div id="logo"><a href="index.html"><img src="images/logo.gif" alt="" title="" border="0" /></a></div>
+        
+        <div id="menu_tab">                               
+                <ul class="menu">                         
+                     <li><a href="index.html" class="nav_home"> HOME </a></li>
+                     <li><a href="about.html" class="nav_about"> ABOUT</a></li>
+                     <li><a href="projects.html" class="nav_services"> PROJECTS</a></li>
+                     <li><a href="about.html" class="nav_help"> HELP</a></li>
+                     <li><a href="contact.html" class="nav_contact"> CONTACT </a></li>
+                </ul>
+        </div>        
+        
+        
+    </div>
+    
+  
+            
+    <div id="main_content">
+    
+    	<div class="left_content">
+
+           
+            
+            	<h1>Contact Us</h1>    
+				
+             	<div class="contact_form">
+                           
+                    <div class="form_row">
+                    <label class="contact"><strong>Name:</strong></label>
+                    <input type="text" class="contact_input" />
+                    </div>  
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Email:</strong></label>
+                    <input type="text" class="contact_input" />
+                    </div>
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Website:</strong></label>
+                    <input type="text" class="contact_input" value="http://" />
+                    </div>
+
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Message:</strong></label>
+                    <textarea class="contact_textarea" ></textarea>
+                    </div>
+
+                    
+                    <div class="form_row">
+                    <a href="#" class="read_more">send</a>
+                    </div>      
+                    
+                </div> 
+                
+                <div class="contact_info">
+             	<h1>Contact info</h1>    
+				<p>
+                <img src="images/icon_team.gif" alt="" title="" class="left_img" />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+<br  /><br />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <br />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+<br  /><br />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <br />
+                </p>
+                </div>    
+                 
+        </div><!-- end of left content-->
+        
+
+    	<div class="right_content">
+        	
+            <div class="blog_title">from the blog</div>
+            <div class="right_box">
+            	<div class="right_box_top"></div>
+                <div class="right_box_center">
+                	<p class="text_box">
+                    	<span class="orange">Nemo enim ipsam voluptatem quia voluptas sit </span><br />
+                        <i>(13.07.09)</i><br  />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                    </p>
+                    
+                 	<p class="text_box">
+                    	<span class="orange">Nemo enim ipsam voluptatem quia voluptas sit </span><br />
+                        <i>(13.07.09)</i><br  />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                    </p>        
+                    
+                    
+                    <a href="#" class="read_more">all news</a>
+                    <div class="clear"></div>
+                </div>
+                <div class="right_box_bottom"></div>
+            </div>
+            
+            <div class="testimonials_title">clients testimonials</div>
+            <div class="right_box">
+            	<div class="right_box_top"></div>
+                <div class="right_box_center">
+                	<p class="text_box">
+                    	<span class="orange">Tommy Voluptatem </span><br />
+                        <i>(Enterprice Name)</i><br  />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                    </p>
+                    
+                 	<p class="text_box">
+                    	<span class="orange">Tommy Voluptatem</span><br />
+                        <i>(Enterprice Name)</i><br  />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                    </p>        
+                    
+                    
+                    <a href="#" class="read_more">all news</a>
+                    <div class="clear"></div>
+                </div>
+                <div class="right_box_bottom"></div>
+            </div>   
+        
+        </div><!-- end of left content-->
+                
+	<div class="clear"></div>
+    </div><!-- main_content-->  
+    
+    <div id="footer">
+    	
+        <img src="images/footer_logo.gif" alt="" title="" class="footer_logo" />
+        <div class="left_footer">
+        Website name &copy; 2009. All Rights Reserved.
+        </div>
+        <div class="right_footer">
+			<a href="#">Home</a>  |  <a href="#">About Us</a>  |  <a href="#">Pivacy Policy</a>   |  <a href="#">Contact</a> | 
+            <a href="http://indeziner.com" target="_blank">INDEZINER</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

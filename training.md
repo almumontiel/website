@@ -1,0 +1,3 @@
+ - [Very good link of all the races in going on in Germany](http://www.lauftreff.de/laeufe/laufkalender.html)
+ - [Very good link of races in Spain](http://www.carreraspopulares.com/)
+ - Training plan to get down the [45' 10Km](http://www.runners.es/baja-45-una-carrera-10-kilometros)
